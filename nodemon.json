@@ -1,0 +1,7 @@
+{
+  "ignore": [
+    "app/**/*.ts",
+    "node_modules",
+    "typings"
+  ]
+}

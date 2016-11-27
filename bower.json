@@ -1,0 +1,31 @@
+{
+  "name": "balnk-riot3-sockjs",
+  "description": "",
+  "main": "",
+  "authors": [
+    "Андрей Овчаренко <ovcharenkoav@meta.ua>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/apapacy/balnk-riot3-sockjs",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "socket.io": "^1.6.0",
+    "socket.io-client": "^1.6.0",
+    "twigjs": "^0.10.2",
+    "domReady": "^2.0.1",
+    "requirejs": "^2.3.2",
+    "jquery": "^3.1.1",
+    "lodash": "^4.17.2",
+    "jquery-mask-plugin": "jquery-mask#^1.14.2"
+  },
+  "overrides": {
+    "socket.io-client": {
+      "main": "./socket.io.min.js"
+    }
+  }
+}
