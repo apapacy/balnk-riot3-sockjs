@@ -23,7 +23,8 @@
     "lodash": "^4.17.2",
     "jquery-mask-plugin": "jquery-mask#^1.14.2",
     "RiotControl": "riot-control#*",
-    "fetch": "^2.0.1"
+    "fetch": "^2.0.1",
+    "react": "^15.4.1"
   },
   "overrides": {
     "socket.io-client": {
