@@ -1,6 +1,6 @@
 import first from './services/First';
 
 
-export default {
+module.exports = {
   first,
 };

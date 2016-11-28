@@ -3,7 +3,6 @@ import * as riot from 'riot';
 import services from 'services';
 import events from 'events';
 
-console.log(events)
 class First extends Store {
 
   get name() {

@@ -1,7 +1,7 @@
 import * as riot from 'riot';
 import * as _ from 'lodash';
 
-const localStorageKey = 'some localstorage key';
+const sessionStorageKey = 'some storage key';
 
 export class Store {
 
@@ -19,7 +19,7 @@ export class Store {
   }
 
   getStorage() {
-    const storage = window.localStorage[localStorageKey + '.' + this.name];
+    const storage = window.sessionStorage[sessionStorageKey + '.' + this.name];
     if (!storage) {
       return {};
     } else {
@@ -29,9 +29,9 @@ export class Store {
 
   setStorage(data) {
     if (typeof data === 'object') {
-      window.localStorage[localStorageKey + '.' + this.name] = JSON.stringify(data);
+      window.sessionStorage[sessionStorageKey + '.' + this.name] = JSON.stringify(data);
     } else {
-      window.localStorage[localStorageKey + '.' + this.name] = '';
+      window.sessionStorage[sessionStorageKey + '.' + this.name] = '';
     }
   }
 }
