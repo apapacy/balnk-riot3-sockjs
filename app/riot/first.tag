@@ -16,10 +16,8 @@
       self = this
       RiotControl.on('input_value_changed', function(store){
         _.assign(self, store.data)
-        alert(0)
-        self.update()
+        riot.update()
       })
-      alert(5)
       RiotControl.trigger('init_value')
     })
 
