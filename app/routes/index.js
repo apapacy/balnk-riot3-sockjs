@@ -13,6 +13,9 @@ router.get('/riot(/*)?', function(req, res, next) {
   res.send(html);
 });
 
+router.all('/random', function(req, res, next) {
+    res.json({random: Math.random()});
+});
 
 
 module.exports = router;

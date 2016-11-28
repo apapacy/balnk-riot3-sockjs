@@ -1,6 +1,6 @@
 import 'fetch';
 
-export default class Service {
+export class Service {
   constructor() {
     this.baseUrl = '/api';
   }
