@@ -8,11 +8,6 @@ export class Store {
   constructor() {
     this.deserialize();
     riot.observable(this);
-    if (!this.data.time) {
-      this.data.time = new Date();
-      this.serialize()
-    }
-    console.log(this.data)
   }
 
   serialize() {

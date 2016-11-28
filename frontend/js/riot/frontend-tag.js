@@ -18,10 +18,32 @@ riot.tag2('document-tag', '<head> <meta charset="utf-8"> <meta content="IE=10" h
     })
 });
 
-riot.tag2('first-tag', '<div>first</div>', '', '', function(opts) {
+riot.tag2('first-tag', '<div>first</div> <input type="text" ref="input" riot-value="{value}" onkeyup="{onKeyUp}">', '', '', function(opts) {
     const riot = require('riot')
     const stores = require('stores')
-    console.log(stores)
+    const _ = require('lodash')
+    var self
+
+    this.onKeyUp = function(event) {
+      RiotControl.trigger('input_value_change', this.refs.input.value)
+    }.bind(this)
+
+    this.on('mount', function(){
+      self = this
+      RiotControl.on('input_value_changed', function(store){
+        _.assign(self, store.data)
+        alert(0)
+        self.update()
+      })
+      alert(5)
+      RiotControl.trigger('init_value')
+    })
+
+    this.on('ummount', function(){
+      self = void 0
+      RiotControl.off('input_value_changed')
+    })
+
 });
 
 riot.tag2('inner', '<div>456</div>', '', '', function(opts) {
@@ -29,11 +51,9 @@ riot.tag2('inner', '<div>456</div>', '', '', function(opts) {
 
 riot.tag2('layout-tag', '<div data-is="{tag}">123</div> <button onclick="{click}">Click!</button> <button onclick="{clickMe}">Click me!</button>', '', '', function(opts) {
     this.click = function(event){
-      alert('clicked')
       this.tag = 'first-tag'
     }.bind(this)
     this.clickMe = function(event){
-      alert('clicked')
       this.tag = 'second-tag'
     }.bind(this)
 });

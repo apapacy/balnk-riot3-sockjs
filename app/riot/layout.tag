@@ -4,11 +4,9 @@
   <button onclick={ clickMe }>Click me!</button>
   <script>
     click(event){
-      alert('clicked')
       this.tag = 'first-tag'
     }
     clickMe(event){
-      alert('clicked')
       this.tag = 'second-tag'
     }
   </script>

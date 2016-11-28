@@ -21,7 +21,8 @@
     "requirejs": "^2.3.2",
     "jquery": "^3.1.1",
     "lodash": "^4.17.2",
-    "jquery-mask-plugin": "jquery-mask#^1.14.2"
+    "jquery-mask-plugin": "jquery-mask#^1.14.2",
+    "RiotControl": "riot-control#*"
   },
   "overrides": {
     "socket.io-client": {
