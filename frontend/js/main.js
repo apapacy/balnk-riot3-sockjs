@@ -6,4 +6,4 @@ import 'riot/frontend-tag';
 import 'riotcontrol'
 import 'react/test'
 
-riot.mount('body', 'layout-tag', {});
+//riot.mount('body', 'layout-tag', {});

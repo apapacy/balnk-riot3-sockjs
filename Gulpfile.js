@@ -84,10 +84,12 @@ var config = {
   build: {
     rjs: {
       entryPoints: {
-        'page/testFrontend': {},
+        'config/require.config': {},
       },
       defaultOptions: {
-        mainConfigFile: './public/dependencies/js/config/require.js',
+        includeNestedDependencies: true,
+        findNestedDependencies: true,
+        //mainConfigFile: './public/dependencies/js/config/require.config.js',
         //stubModules: ['text', 'json', 'json!/translations'],
         //inlineText: true,
         //pragmas: {
@@ -97,16 +99,17 @@ var config = {
         //inlineTWIG: false,
         //appDir: 'public',
         //config.dependencies.js.minify
-        //out:            `js/page/testFrontend__.js`,
+        out:            `app.js`,
       },
       DEST_PATH: './public/dependencies/js'
     },
     concat: {
       entryPoints: {
-        'require.js': [
+        'require.js0': [
           'public/dependencies/js/require.js',
-          'public/dependencies/js/config/require.js',
-          'public/dependencies/js/config/boost.js'
+          //'public/dependencies/js/riot.js',
+          //'public/dependencies/js/config/require.config.js',
+          //'public/dependencies/js/config/boost.js'
         ]
       },
       options: {

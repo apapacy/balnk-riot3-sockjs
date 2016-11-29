@@ -23,6 +23,6 @@
   });
 
   requirejs([
-    'main', 'domReady!'
-  ], function() {})
+    'main'
+  ], function() {alert(2)})
 }());
