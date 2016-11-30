@@ -14,9 +14,9 @@ var config = {
       minify: env !== 'dev',
       paths: {
         '': ['frontend'], // "./" вначале - текущая папка
-        //'подПапка': ['./src/Rt/Bundle/AdminBundle/Resources/frontend'],//Друг, исправь меня!
+        'js/react': ['app/react'],
       },
-      extensions: ['js', 'es6'],
+      extensions: ['js', 'es6', 'jsx'],
       babel: {
         options: {
           modules: 'amd'
@@ -74,6 +74,8 @@ var config = {
       files: {
         //'node_modules/twig/twig.min.js': 'twig',
         'node_modules/riot/riot.min.js': 'riot',
+        'node_modules/react/dist/react.js': 'react',
+        'node_modules/react-dom/dist/react-dom.js': 'react-dom',
         'node_modules/i18next/i18next.min.js': 'i18next',
         'node_modules/i18next-xhr-backend/i18nextXHRBackend.min.js': 'i18next-xhr-backend',
         'node_modules/i18next-browser-languagedetector/i18nextBrowserLanguageDetector.min.js': 'i18next-browser-languagedetector',
@@ -127,12 +129,12 @@ var config = {
       'markup/fixtures/*.json',
     ],
     options: {
-      https: {
-        key: path.join(__dirname, 'config', 'keys', 'server', 'privkey.pem'),
-        cert: path.join(__dirname, 'config', 'keys', 'server', 'fullchain.pem')
-      }
+    //  https: {
+    //    key: path.join(__dirname, 'config', 'keys', 'server', 'privkey.pem'),
+    //    cert: path.join(__dirname, 'config', 'keys', 'server', 'fullchain.pem')
+    //  }
     },
-    WAIT: 500,
+    WAIT: 5000,
   },
   generate: {
     assets: {
@@ -167,7 +169,7 @@ gulp.task('ts:watch', function(cb) {
 
 gulp.task('sock',['default', 'riot:frontend', 'ts']);
 gulp.task('sock:watch',['default', 'riot:frontend:watch', 'watch', 'ts:watch']);
-gulp.task('sock:sync',['sync', 'sock:watch']);
+gulp.task('sock:sync',['browserSync', 'sock:watch']);
 
 
 gulp.task('react-watch', function() {

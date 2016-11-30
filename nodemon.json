@@ -1,7 +1,7 @@
 {
   "ignore": [
-    "app/**/*.ts",
     "node_modules",
-    "typings"
-  ]
+    "bower_comonents"
+  ],
+  "ext": "js jsx ts json"
 }
