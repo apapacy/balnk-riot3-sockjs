@@ -1,0 +1,388 @@
+.new-credit {
+    width: 100%;
+    height: 100%;
+    .swiper-container {
+        height: 100%;
+        .swiper-wrapper {
+            padding: 93px 0 30px 0;
+            .swiper-slide {
+                width: 100%;
+            }
+        }
+        .swiper-pagination {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            top: 15px;
+            bottom: auto;
+            width: 90%;
+            left: 50%;
+            transform: translateX(-50%);
+            &-bullet {
+                margin: 0;
+                background: $colorTextQuater;
+                width: 13px;
+                height: 13px;
+                @include anim($dur: .25s);
+                &-active {background: $colorLink;}
+            }
+        }
+    }
+    @include bp($Mobile) {
+        .swiper-container {
+            .swiper-wrapper {padding-top: 46px;}
+            .swiper-pagination {
+                top: 7px;
+                &-bullet {
+                    width: 6px;
+                    height: 6px;
+                }
+            }
+        }
+    }
+}
+
+.slide-money {
+    .form {
+        &__input {
+            display: flex;
+            align-items: center;
+            flex-direction: row-reverse;
+            justify-content: space-between;
+            margin-bottom: 80px;
+            .money-input {
+                display: inline-block;
+                width: calc(100% - 172px);
+                font-weight: 400;
+            }
+            .money-label {
+                position: static;
+                flex-shrink: 0;
+                padding: 0 27px 0 0;
+                font-weight: 400;
+                width: 145px;
+            }
+        }
+        &__range {
+            display: flex;
+            align-items: flex-start;
+            flex-direction: column;
+            margin-bottom: 80px;
+            .label-day {
+                display: block;
+                margin-bottom: 70px;
+                font-size: 1.666em;
+            }
+            input {width: 100%;}
+        }
+    }
+    .summary-info {
+        margin-bottom: 77px;
+        &_commission {
+            display: block;
+            font-size: 1.33em;
+            margin-bottom: 56px;
+        }
+        &_pay {
+            font-size: 1.166em;
+            display: block;
+            margin-bottom: 30px;
+        }
+        &_return {
+            font-size: 1.166em;
+            display: block;
+        }
+    }
+    @include bp($Mobile) {
+        .form {
+            &__input {
+                margin-bottom: 40px;
+                .money-input {
+                    width: calc(100% - 86px);
+                }
+                .money-label {
+                    padding: 0 13px 0 0;
+                    width: 72px;
+                }
+            }
+            &__range {
+                margin-bottom: 40px;
+                .label-day {margin-bottom: 35px;}
+            }
+        }
+        .summary-info {
+            margin-bottom: 38px;
+            &_commission {margin-bottom: 26px;}
+            &_pay {margin-bottom: 15px;}
+        }
+    }
+}
+
+.slide-socnet{
+    h3{
+        font-size: 1.91em;
+        letter-spacing: .5px;
+        line-height: 1.28;
+        margin: 0 0 81px;
+        span{
+            display: block;
+            margin: 0 0 40px;
+        }
+    }
+    .social-list {margin: 0 0 85px;}
+    .button {
+        background: $colorLink;
+        color: #fff;
+    }
+    @include bp($Mobile) {
+        h3 {
+            letter-spacing: 0;
+            margin: 0 0 40px;
+            span {margin: 0 0 20px;}
+        }
+        .social-list {margin: 0 0 42px;}
+    }
+}
+
+.slide-info{
+    h3 {margin: 0 0 54px;}
+    .form {
+        margin: 0 0 78px;
+        &__field {
+            display: block;
+            position: relative;
+            margin: 0 0 59px;
+            &.upper-select {margin: 0 0 70px;}
+            &:nth-child(4) {margin: 0 0 72px;}
+            &:last-child {margin: 0;}
+        }
+    }
+    .button {
+        background: $colorLink;
+        color: #fff;
+    }
+    @include bp($Mobile) {
+        h3 {margin: 0 0 27px;}
+        .form {
+            margin: 0 0 39px;
+            &__field {
+                margin: 0 0 29px;;
+                &.upper-select {margin: 0 0 35px;}
+                &:nth-child(4) {margin: 0 0 36px;}
+            }
+        }
+    }
+}
+
+.slide-job {
+    h3 {margin: 0 0 48px;}
+    h4 {margin: 0 0 53px;}
+    .form {
+        margin: 0 0 78px;
+        &__field{
+            display: block;
+            position: relative;
+            margin: 0 0 60px;
+            &.upper-select {margin: 0 0 65px;}
+            &:last-child {margin: 0;}
+        }
+        .field-company {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 0 0 75px;
+            .form__field {
+                margin: 0;
+                &:first-child {width: 120px;}
+                &:last-child {width: calc(100% - 171px);}
+            }
+        }
+        .field_live {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 0 0 60px;
+            .form__field {
+                margin: 0;
+                width: 43%;
+            }
+        }
+    }
+    .button {
+        background: $colorLink;
+        color: #fff;
+    }
+    @include bp($Mobile) {
+        h3 {margin: 0 0 24px;}
+        h4 {margin: 0 0 26px;}
+        .form {
+            margin: 0 0 39px;
+            &__field{
+                margin: 0 0 30px;
+                &.upper-select {margin: 0 0 32px;}
+            }
+            .field-company {
+                margin: 0 0 37px;
+                .form__field {
+                    margin: 0;
+                    &:first-child {width: 60px;}
+                    &:last-child {width: calc(100% - 111px);}
+                }
+            }
+            .field_live {margin: 0 0 35px;}
+        }
+    }
+}
+
+.slide-contacts {
+    h3 {margin: 0 0 53px;}
+    h4 {margin: 0 0 50px;}
+    .form {
+        margin: 0 0 78px;
+        &__field{
+            display: block;
+            position: relative;
+            margin: 0 0 55px;
+            &:last-child {margin: 0;}
+        }
+        .field-address {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-flow: row nowrap;
+            margin-bottom: 55px;
+            .form__field {
+                margin-bottom: 0;
+                &:first-child {width: 179px;}
+                &:nth-child(2) {width: 85px;}
+                &:last-child {width: 179px;}
+            }
+        }
+        .checkbox-slider {margin-bottom: 67px;}
+        .add-phone {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            .form__field {
+                &:first-child {
+                    width: 33%;
+                    margin: 0;
+                }
+                &:last-child {width: 57%;}
+            }
+        }
+    }
+    .button {
+        background: $colorLink;
+        color: #fff;
+    }
+    @include bp($Mobile) {
+        h3 {margin: 0 0 24px;}
+        h4 {margin: 0 0 26px;}
+        .form {
+            margin: 0 0 39px;
+            &__field{margin: 0 0 31px;}
+            .field-address {
+                margin-bottom: 27px;
+                .form__field {
+                    &:first-child {width: 85px;}
+                    &:nth-child(2) {width: 40px;}
+                    &:last-child {width: 85px;}
+                }
+            }
+            .checkbox-slider {margin-bottom: 33px;}
+        }
+    }
+}
+
+.slide-card {
+    h3 {
+        margin: 0 0 35px;
+        line-height: 1.28;
+    }
+    .subtitle {
+        margin: 0 0 105px;
+        font-size: 1.166em;
+        line-height: 1.3;
+        color: $colorTextHalf;
+    }
+    .form {
+        &__field {
+            position: relative;
+            margin: 0 0 63px;
+            &.credit-card {
+                label {
+                    position: absolute;
+                    top: -45px;
+                    left: 0;
+                    font-size: 1.166em;
+                    color: $colorText;
+                }
+            }
+        }
+        .info-card {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            .form__field {
+                &:first-child {width: 42.5%;}
+                &:last-child {width: 42.5%;}
+            }
+        }
+    }
+    @include bp($Mobile) {
+        h3 {margin: 0 0 17px;}
+        .subtitle {margin: 0 0 52px;}
+        .form {
+            &__field {
+                margin: 0 0 31px;
+                &.credit-card {
+                    label {top: -22px;}
+                }
+            }
+            .info-card {margin-bottom: 7px;}
+        }
+    }
+}
+
+.slide-confirm {
+    text-align: center;
+    h3 {
+        margin: 0 0 30px;
+        line-height: 1.28;
+    }
+    .subtitle {
+        margin: 0 0 49px;
+        font-size: 1.166em;
+        line-height: 1.3;
+        color: $colorTextHalf;
+        a {color: $colorTextHalf;}
+    }
+    .form {
+        &__field {
+            margin: 0 auto;
+            margin-bottom: 71px;
+            position: relative;
+            input {text-align: center;}
+        }
+        button {margin: 0 0 57px;}
+    }
+    .note {
+        font-size: 1.166em;
+        margin-bottom: 23px;
+        color: $colorTextHalf;
+    }
+    .send-again {font-size: 1.166em;}
+    @include bp($Mobile) {
+        h3 {margin: 0 0 15px;}
+        .subtitle {
+            margin: 0 0 25px;
+        }
+        .form {
+            &__field {margin-bottom: 35px;}
+            button {margin: 0 0 27px;}
+        }
+        .note {margin-bottom: 11px;}
+    }
+}

@@ -4,13 +4,14 @@ import ReactDOM from 'react-dom';
 import Layout from 'react/Layout'
 
 export class Inner extends React.Component {
+  static description = 'Описание для вывдоа в списке компонентов'
   constructor(...props){
     super(...props);
     props.p1='first';
   }
   render() {
     return (
-      <Layout>
+      <Layout {...this.props}>
       <div id='root'>
       next++++++++++*********{this.props.p1}
       </div>
@@ -20,7 +21,8 @@ export class Inner extends React.Component {
 }
 
 Inner.defaultProps = {
-  p1: 'second'
+  p1: 'second',
+  mainScript: 'test.js'
 }
 
 export default Inner

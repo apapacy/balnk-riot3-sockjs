@@ -1,0 +1,61 @@
+.popup {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 550px;
+	height: 100vh;
+	z-index: 10;
+	background: #fff;
+	transform: rotateY(90deg);
+	@include anim($param: transform, $dur: .5s, $type: cubic-bezier(.04, .8, 1, 1));
+	transform-origin: 0;
+	will-change: transform;
+	box-shadow: 15px 0 40px 0 rgba(0, 0, 0, .35);
+	.popup-opened & {
+		transform: rotateY(0deg);
+	}
+	&__wrapper {
+		padding: 58px 59px 0;
+		height: 100%;
+		position: relative;
+		box-sizing: border-box;
+	}
+	&__close-btn {
+		position: absolute;
+		right: 20px;
+		top: 40px;
+		width: 22px;
+		height: 15px;
+		cursor: pointer;
+	}
+	&__title {
+		font-size: 1.625em;
+		margin: 0 0 17px;
+	}
+	&__info-group {
+		margin: 0 0 40px;
+	}
+	&__info-box {
+		margin: 0 0 15px;
+		.label {
+			color: $colorTextHalf;
+		}
+	}
+	&__link {
+		font-size: .875em;
+		&:before {
+			font-size: 1.7rem;
+			vertical-align: bottom;
+			margin: 0 14px 0 0;
+		}
+	}
+}
+//.overflow-popup {
+//	position: absolute;
+//	top: 0;
+//	width: 100vw;
+//	height: 100vh;
+//	background: transparentize(#000, .6);
+//	opacity: .7;
+//	z-index: 200;
+//}

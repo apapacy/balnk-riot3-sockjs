@@ -1,0 +1,52 @@
+.choose-investment {
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+	align-self: stretch;
+	.investment-type {
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
+		align-self: stretch;
+		align-items: center;
+		flex: 1;
+		padding-top: 168px;
+		text-align: center;
+		& + .investment-type {
+			border-left: 1px solid #dbdbdb;
+		}
+		.img-holder {
+			margin: 0 auto 53px;
+			min-height: 119px;
+		}
+		h3 {
+			margin-bottom: 20px;
+			font-size: 1.625em;
+		}
+		.subtitle {
+			margin-bottom: 30px;
+			span {
+				display: block;
+				margin-bottom: 5px;
+				color: transparentize(#000, .6);
+			}
+		}
+		.button {
+			opacity: 0;
+			visibility: hidden;
+			padding: 17px 34px;
+			@include anim($dur: .15s);
+			@include anim($param: visibility opacity);
+		}
+	}
+	.expert, .direct {
+		&:hover > {
+			.button {
+				opacity: 1;
+				visibility: visible;
+			}
+		}
+	}
+}

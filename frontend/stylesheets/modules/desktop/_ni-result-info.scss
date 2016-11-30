@@ -1,0 +1,29 @@
+.successfully-inspection {
+	width: 757px;
+}
+
+.ni-result-info {
+	display: flex;
+	flex-flow: row nowrap;
+	margin: 56px 0 68px;
+	&__cell {
+		flex: 1;
+		.title, .value {
+			display: block;
+		}
+		.title {
+			font-size: .875em;
+			color: transparentize(#000, .6);
+			margin-bottom: 11px;
+		}
+		.value {
+			font-size: 2.2em;
+			.unit {
+				font-size: 23px;
+			}
+		}
+		& + .ni-result-info__cell {
+			border-left: 2px solid transparentize(#000, .9);
+		}
+	}
+}

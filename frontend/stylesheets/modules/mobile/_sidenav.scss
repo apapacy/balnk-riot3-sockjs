@@ -1,0 +1,120 @@
+.sidenav-holder {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background: $colorLink;
+    padding: 61px 0 0 0;
+    height: 100%;
+    overflow-y: auto;
+    position: relative;
+    width: 56.5%;
+    left: 43.5%;
+    will-change: transform;
+    transform: translateX(100%);
+    transition: transform .3s cubic-bezier(0.71, 0.37, 0, 1.01);
+    .avatar-frame {
+        display: block;
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        overflow: hidden;
+        background-size: 100%;
+        background-repeat: no-repeat;
+        margin-bottom: 70px;
+        flex-shrink: 0;
+    }
+    .main-nav {
+        display: block;
+        height: 100%;
+        padding-bottom: 130px;
+        & > a {
+            display: block;
+            margin-bottom: 75px;
+            font-size: 0.916em;
+            text-transform: uppercase;
+            font-weight: 500;
+            color: $colorHover;
+            padding-left: 68px;
+            position: relative;
+            letter-spacing: 4px;
+            &:last-child{margin-bottom: 0}
+            &:before {
+                font-family: 'icomoon';
+                position: absolute;
+                left: -16px;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+        }
+        &__credit {
+            &:before {
+                content: "\e905";
+                font-size: 2em;
+            }
+        }
+        &__wallet {
+            &:before {
+                content: "\e921";
+                font-size: 1.8em;
+            }
+        }
+        &__partners {
+            &:before {
+                content: "\e914";
+                font-size: 2.1em;
+            }
+        }
+        &__support {
+            &:before {
+                content: "\e909";
+                font-size: 2em;
+            }
+            .notificate {
+                display: none;
+                position: absolute;
+                top: -22px;
+                left: 32px;
+                width: 12px;
+                height: 12px;
+                border-radius: 50%;
+                background: $colorButton;
+            }
+        }
+        &__settings {
+            &:before {
+                content: "\e920";
+                font-size: 2em;
+            }
+        }
+    }
+    @include bp($Mobile) {
+        padding-top: 30px;
+        width: 70%;
+        left: 30%;
+        .avatar-frame {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 35px;
+        }
+        .main-nav {
+            padding-bottom: 250px;
+            & > a {
+                margin-bottom: 30px;
+                padding-left: 50px;
+                letter-spacing: 2px;
+                &:before {left: 0;}
+            }
+            &__support {
+                .notificate {
+                    top: -14px;
+                    left: 35px;
+                    width: 6px;
+                    height: 6px;
+                    border-radius: 50%;
+                    background: $colorButton;
+                }
+            }
+        }
+    }
+}
+

@@ -1,0 +1,46 @@
+.registration-container {
+    width: 100%;
+    color: $colorTextLight;
+    h3 {
+        text-align: center;
+        letter-spacing: -0.5px;
+        color: $colorText;
+        margin: 0 0 70px;
+    }
+    .form {
+        &__field {
+            position: relative;
+            margin: 0 0 70px;
+        }
+        &__note {
+            line-height: 1.45;
+            margin: -13px 0 58px;
+        }
+        &__button {
+            width: 100%;
+            margin: 0 0 22px;
+            letter-spacing: 3px;
+        }
+    }
+    .login-holder {
+        text-align: center;
+        a{
+            color: $colorTextHalf;
+            &:hover {color: $colorLink;}
+        }
+    }
+    @include bp($Mobile) {
+        h3 {
+            letter-spacing: -0.2px;
+            margin: 0 0 35px;
+        }
+        .form {
+            &__field {margin-bottom: 34px;}
+            &__note {margin: -3px 0 33px;}
+            &__button {
+                margin:0 0 11px;
+                letter-spacing: 1.5px;
+            }
+        }
+    }
+}

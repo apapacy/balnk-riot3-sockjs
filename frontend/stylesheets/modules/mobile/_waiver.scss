@@ -1,0 +1,47 @@
+.credit-waiver{
+    text-align: center;
+    .title {
+        margin: 0 0 45px;
+        span {display: block;}
+        &:before {
+            content: '\e91c';
+            font-family: 'icomoon';
+            background: #e2e2e2;
+            width: 165px;
+            height: 165px;
+            line-height: 165px;
+            color: #fff;
+            font-size: 1em;
+            display: block;
+            margin: 45px auto 50px;
+            border-radius: 50%;
+        }
+    }
+    .subtitle {
+        padding: 0 15px;
+        margin: 0 0 45px;
+        line-height: 1.35;
+        font-size: 1.166em;
+        color: $colorTextHalf;
+        span {
+            display: block;
+            margin: 0 0 40px;
+        }
+    }
+    @include bp($Mobile) {
+        .title {
+            margin: 0 0 17px;
+            &:before {
+                width: 82px;
+                height: 82px;
+                line-height: 82px;
+                margin: 22px auto 25px;
+            }
+        }
+        .subtitle {
+            padding: 0 5px;
+            margin: 0 0 22px;
+            span {margin: 0 0 10px;}
+        }
+    }
+}

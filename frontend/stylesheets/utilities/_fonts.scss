@@ -1,0 +1,239 @@
+@font-face {
+	font-family: 'GothamPro';
+	src: url('../fonts/GothaProReg.eot');
+	src: local('☺'), url('../fonts/GothaProReg.woff') format('woff'),
+	url('../fonts/GothaProReg.ttf') format('truetype'),
+	url('../fonts/GothaProReg.svg') format('svg');
+	font-weight: 400;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'GothamPro';
+	src: url('../fonts/GothaProBol.eot');
+	src: local('☺'), url('../fonts/GothaProBol.woff') format('woff'),
+	url('../fonts/GothaProBol.ttf') format('truetype'),
+	url('../fonts/GothaProBol.svg') format('svg');
+	font-weight: bold;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'GothamPro';
+	src: url('../fonts/GothaProMed.eot');
+	src: local('☺'), url('../fonts/GothaProMed.woff') format('woff'),
+	url('../fonts/GothaProMed.ttf') format('truetype'),
+	url('../fonts/GothaProMed.svg') format('svg');
+	font-weight: 500;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'GothamPro';
+	src: url('../fonts/GothaProLig.eot');
+	src: local('☺'), url('../fonts/GothaProLig.woff') format('woff'),
+	url('../fonts/GothaProLig.ttf') format('truetype'),
+	url('../fonts/GothaProLig.svg') format('svg');
+	font-weight: 300;
+	font-style: normal;
+}
+
+// icons
+
+@font-face {
+	font-family: 'icomoon';
+	src:    url('../fonts/icomoon.eot?aoj2hk');
+	src:    url('../fonts/icomoon.eot?aoj2hk#iefix') format('embedded-opentype'),
+	url('../fonts/icomoon.ttf?aoj2hk') format('truetype'),
+	url('../fonts/icomoon.woff?aoj2hk') format('woff'),
+	url('../fonts/icomoon.svg?aoj2hk#icomoon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+	&:before{
+		font-family: 'icomoon' !important;
+		speak: none;
+		font-style: normal;
+		font-weight: normal;
+		font-variant: normal;
+		text-transform: none;
+		line-height: 1;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+	}
+}
+.icon-ic_iphone:before {
+	content: "\e927";
+}
+.icon-ic_ipod:before {
+	content: "\e928";
+}
+.icon-ic_windows:before {
+	content: "\e929";
+}
+.icon-check:before {
+	content: "\e922";
+}
+.icon-f:before {
+	content: "\e923";
+}
+.icon-in:before {
+	content: "\e924";
+}
+.icon-ok:before {
+	content: "\e925";
+}
+.icon-vk:before {
+	content: "\e926";
+}
+.icon-analytics:before {
+	content: "\e900";
+}
+.icon-calendar:before {
+	content: "\e901";
+}
+.icon-change_pas:before {
+	content: "\e902";
+}
+.icon-clock-01:before {
+	content: "\e903";
+}
+.icon-conditions:before {
+	content: "\e904";
+}
+.icon-credit:before {
+	content: "\e905";
+}
+.icon-devices:before {
+	content: "\e906";
+}
+.icon-edit:before {
+	content: "\e907";
+}
+.icon-envelope:before {
+	content: "\e908";
+}
+.icon-help:before {
+	content: "\e909";
+}
+.icon-info:before {
+	content: "\e90a";
+}
+.icon-information:before {
+	content: "\e90b";
+}
+.icon-link:before {
+	content: "\e90c";
+}
+.icon-lock1:before {
+	content: "\e90d";
+}
+.icon-mobile:before {
+	content: "\e90e";
+}
+.icon-money:before {
+	content: "\e90f";
+}
+.icon-money_in:before {
+	content: "\e910";
+}
+.icon-money_out:before {
+	content: "\e911";
+}
+.icon-notice:before {
+	content: "\e912";
+}
+.icon-notification:before {
+	content: "\e913";
+}
+.icon-partner:before {
+	content: "\e914";
+}
+.icon-pay_credit:before {
+	content: "\e915";
+}
+.icon-print:before {
+	content: "\e916";
+}
+.icon-question:before {
+	content: "\e917";
+}
+.icon-remove:before {
+	content: "\e918";
+}
+.icon-send:before {
+	content: "\e919";
+}
+.icon-smile_happy:before {
+	content: "\e91a";
+}
+.icon-smile_mad:before {
+	content: "\e91b";
+}
+.icon-smile_sad:before {
+	content: "\e91c";
+}
+.icon-sort:before {
+	content: "\e91d";
+}
+.icon-spinner:before {
+	content: "\e91e";
+}
+.icon-thumbs_up:before {
+	content: "\e91f";
+}
+.icon-tinctures:before {
+	content: "\e920";
+}
+.icon-wallet:before {
+	content: "\e921";
+}
+.icon-plus-small:before {
+	content: "\e917";
+}
+.icon-minus:before {
+	content: "\e92a";
+}
+.icon-chevron-left:before {
+	content: "\e92b";
+}
+.icon-chevron-down:before {
+	content: "\e92c";
+}
+.icon-chevron-up:before {
+	content: "\e92d";
+}
+.icon-chevron-right:before {
+	content: "\e92e";
+}
+.icon-question:before {
+	content: "\e92f";
+}
+.icon-check-small:before {
+	content: "\e92f";
+}
+.icon-checkmark:before {
+	content: "\ea10";
+}
+.icon-close{
+	&:before,
+	&:after{
+		content: '';
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 22px;
+		height: 1px;
+		background: #b0aeaf;
+		transform: rotate(45deg);
+		@include anim($param: background);
+	}
+	&:after{
+		transform: rotate(-45deg);
+	}
+	&:hover{
+		&:before,
+		&:after{
+			background: #000;
+		}
+	}
+}

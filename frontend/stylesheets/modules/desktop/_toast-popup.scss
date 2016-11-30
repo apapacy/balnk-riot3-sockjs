@@ -1,0 +1,87 @@
+.toast {
+	position: absolute;
+	top: 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 99px;
+	background: #f3eefc;
+	opacity: 0;
+	visibility: hidden;
+	pointer-events: none;
+	z-index: 2;
+	@include anim($dur: .15s);
+	@include anim($param: visibility opacity);
+	&__close {
+		position: absolute;
+		right: 40px;
+		@include centerize(false, true);
+		&:before {
+			content: "\e917";
+			display: inline-block;
+			font-family: 'icomoon';
+			transform: rotateZ(45deg);
+		}
+	}
+	&_type {
+		&_error {
+			background: #ffe5e5;
+		}
+		&_notify {
+			background: #f3eefc;
+		}
+	}
+	&_show {
+		opacity: 1;
+		visibility: visible;
+		pointer-events: auto;
+	}
+}
+.investor-steps {
+	.toast {
+		top: 0;
+		left: 0;
+		&__title {
+			font-size: 1.5em;
+			font-weight: 500;
+			color: transparentize(#000, .4);
+		}
+		&__subtitle {
+			display: block;
+			margin-top: 10px;
+			font-size:.875em;
+			color: transparentize(#000, .6);
+		}
+		&__close {
+			&:before {
+				font-size: 3em;
+				color: transparentize(#000, .6);
+			}
+		}
+		&.success-registration, &.investment-bid {
+			opacity: 1;
+			visibility: visible;
+			pointer-events: auto;
+		}
+		.registration-result, .bid-result {
+			display: none;
+			text-align: center;
+		}
+		&.success-registration {
+			background: #f3eefc;
+			.registration-result {
+				display: block;
+			}
+		}
+		&.investment-bid{
+			background: #ffe5e5;
+			.bid-result {
+				display: block;
+			}
+		}
+	}
+}
+
+

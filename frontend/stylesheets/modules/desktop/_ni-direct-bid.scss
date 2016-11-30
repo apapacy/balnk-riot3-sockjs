@@ -1,0 +1,380 @@
+.ni-direct {
+	.table-holder {
+		height: calc(100vh - 100px); // 100px - top bar height
+		overflow: auto;
+		overflow-x: hidden;
+	}
+	.bids-table {
+		display: table;
+		width: 100%;
+		max-width: 1250px;
+		box-sizing: border-box;
+		position: relative;
+		&__row-holder {
+			display: table-row-group;
+		}
+		&__row {
+			display: table-row;
+		}
+		&__cell {
+			display: table-cell;
+			white-space: nowrap;
+			box-sizing: border-box;
+			@include anim($param: padding, $dur: .15s);
+			&:first-child {
+				position: relative;
+				padding-left: 209px;
+			}
+		}
+		.head {
+			&__cell {
+				padding: 29px 0 5px 3vw;
+				font-size: .875em;
+				color: transparentize(#000, .5);
+				white-space: nowrap;
+				&:first-child {
+					position: relative;
+				}
+			}
+			&__row {
+				//position: fixed;
+				//top: 0;
+			}
+		}
+		.body {
+			&__cell {
+				height: 84px;
+				padding: 0 0 0 3vw;
+				vertical-align: middle;
+				&.risk {
+					&--low {
+						color: $colorLowRisk;
+					}
+					&--moderate {
+						color: $colorModerateRisk;
+					}
+					&--middle {
+						color: $colorMiddleRisk;
+					}
+					&--above-middle {
+						color: $colorAboveMiddleRisk;
+					}
+					&--high {
+						color: $colorHighRisk;
+					}
+				}
+				&[class*="risk--"] {
+					font-weight: 500;
+				}
+				&:first-child {
+					//display: flex;
+					//flex-direction: row;
+					//align-items: center;
+				}
+				&.max-income {
+					font-size: 1.6em;
+					opacity: 0;
+					visibility: hidden;
+					@include anim-param(opacity, visibility);
+					@include anim($dur: .2s);
+					.unit {
+						font-size: 16px;
+					}
+				}
+			}
+			&__row {
+				cursor: pointer;
+				.form{
+					&__field {
+						margin: 0;
+						max-width: 151px;
+						opacity: .6;
+						input {
+							padding-bottom: 0;
+							background: transparent;
+							font-size: 1.5em;
+						}
+						@include placeholder {
+							font-size: 16px;
+						}
+					}
+					&__caret {
+						height: 1px;
+						background: transparentize(#000, .4);
+					}
+				}
+				&:nth-child(even),
+				&:nth-child(odd) {
+					.bids-table__cell {
+						&:first-child {
+							&:after {
+								content: '';
+								top: 0;
+								left: 0;
+								width: 100vw;
+								height: 84px;
+								z-index: -1;
+								position: absolute;
+								border-width: 1px 0 1px 0;
+								border-color: transparent;
+								border-style: solid;
+								box-sizing: border-box;
+								@include anim($param: border-color, $dur: .1s);
+							}
+						}
+					}
+				}
+				&:nth-child(even) {
+					.bids-table__cell {
+						&:first-child {
+							&:after {
+								background: #fafafa;
+							}
+						}
+					}
+				}
+				&:nth-child(odd) {
+					.bids-table__cell {
+						&:first-child {
+							&:after {
+								background: #fff;
+							}
+						}
+					}
+				}
+				.full-investment-sum {
+					&.max-income {
+						opacity: 1;
+						visibility: visible;
+					}
+				}
+				&.active-row {
+					.body__cell {
+						.bids-table__info-icon {
+							&:before {
+								color: $colorLink;
+							}
+						}
+						
+					}
+					.bids-table__row {
+						.bids-table__cell {
+							&:first-child {
+								&:after {
+									border-color: #dbdbdb;
+								}
+							}
+						}
+					}
+					& + .active-row {
+						.bids-table__row {
+							.bids-table__cell {
+								&:first-child {
+									&:after {
+										border-color: #dbdbdb;
+										border-top: transparent;
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		.head, .body {
+			&__cell {
+				&:first-child {
+					padding-left: 209px;
+					box-sizing: border-box;
+				}
+				&:last-child {
+					position: relative;
+					display: flex;
+					flex-flow: row nowrap;
+					align-items: center;
+				}
+			}
+		}
+		&__info-icon {
+			cursor: pointer;
+			&:before {
+				font-family: 'icomoon';
+				width: 20px;
+				height: 20px;
+				font-size: 1.5em;
+				color: transparentize(#000, .7);
+				@include anim-param(color);
+				@include anim($dur: .1s);
+			}
+		}
+		.head-info {
+			display: inline-block;
+			vertical-align: middle;
+			margin-left: 5px;
+			&:before {
+				content: "\e90a";
+			}
+		}
+		.body-info {
+			position: absolute;
+			top: 30px;
+			left: 39%;
+			&:before {
+				content: "\e90a";
+			}
+		}
+		.close {
+			position: relative;
+			width: 15px;
+			height: 17px;
+			margin-left: 4vw;
+			&:before {
+				content: "\e917";
+				position: absolute;
+				transform: rotateZ(45deg);
+				font-family: 'icomoon';
+				font-size: 20px;
+				vertical-align: top;
+				color: transparentize(#000, .7);
+				font-weight: 600;
+			}
+		}
+	}
+	@include bp(1280) {
+		.bids-table {
+			.head {
+				&__cell {
+					padding: 29px 0 5px 2vw;
+				}
+			}
+			.body {
+				&__cell {
+					padding: 0 0 0 2vw;
+				}
+			}
+			.head, .body {
+				&__cell {
+					&:first-child {
+						padding-left: 16vw;
+					}
+					&:last-child {
+						padding-right: 20px;
+					}
+				}
+			}
+		}
+	}
+	@include bp(1124) {
+		.bids-table {
+			.head, .body {
+				&__cell {
+					&:first-child {
+						padding-left: 11vw;
+					}
+				}
+			}
+			.body {
+				&__cell {
+					font-size:.875em;
+				}
+			}
+		}
+	}
+}
+.ni-direct {
+	.bottom-navigation {
+		.table-holder {
+			width: 100%;
+			height: 400px;
+			overflow: auto;
+			overflow-x: hidden;
+			background: $colorLink;
+			.bids-table {
+				.head {
+					&__cell {
+						color: #fff;
+					}
+				}
+				.body {
+					&__row {
+						&:nth-child(even),
+						&:nth-child(odd) {
+							.bids-table__cell {
+								&:first-child {
+									&:after {
+										border-color: transparentize(#000, .9);
+										background: transparent;
+										z-index: 1;
+										pointer-events: none;
+									}
+								}
+							}
+						}
+						&.active-row {
+							.body__cell {
+								.bids-table__info-icon {
+									&:before {
+										color: #fff;
+									}
+								}
+							}
+							& + .active-row {
+								.bids-table__row {
+									.bids-table__cell {
+										&:first-child {
+											&:after {
+												border-top: transparent;
+											}
+										}
+									}
+								}
+							}
+						}
+						.form {
+							&__field {
+								input {
+									color: #fff;
+									border-bottom-color: transparentize(#000, .6);
+								}
+							}
+							&__caret {
+								display: none;
+							}
+						}
+					}
+					&__cell {
+						color: #fff;
+						&[class*="risk--"] {
+							color: #fff;
+						}
+					}
+				}
+				&__info-icon {
+					&:before {
+						color: #fff;
+					}
+				}
+				.close {
+					position: relative;
+					width: 20px;
+					height: 20px;
+					border-radius: 50%;
+					border: 2px solid transparentize(#fff, .4);
+					&:before {
+						top: 50%;
+						left: 50%;
+						transform: translate3d(-50%, -50%, 0) rotateZ(45deg);
+						color: transparentize(#fff, .4);
+					}
+				}
+			}
+		}
+		.mCSB_inside > .mCSB_container {
+			margin: 0;
+		}
+	}
+}
+
+
+
+

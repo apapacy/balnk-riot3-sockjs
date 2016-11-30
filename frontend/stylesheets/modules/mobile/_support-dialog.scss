@@ -1,0 +1,362 @@
+.support-new-chat {
+    &__create {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        padding: 50px;
+        text-transform: uppercase;
+        font-weight: 500;
+        letter-spacing: 2px;
+        .icon-create {
+            position: relative;
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            margin-right: 40px;
+            &:before,
+            &:after {
+                content: '';
+                display: block;
+                position: absolute;
+                left: 50%;
+                top: 50% translate(-50%, -50%);
+                width: 4px;
+                height: 100%;
+                background: $colorLink;
+            }
+            &:after {
+                top: 50%;
+                transform: translateY(-50%) rotate(90deg);
+            }
+        }
+    }
+    .chat-list {
+        &__item {
+            border-top: 2px solid #ededed;
+            a {
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+                padding: 60px;
+                font-weight: 400;
+                font-size: 1.25em;
+                color: $colorTextQuater;
+                &:before {
+                    content: '';
+                    width: 17px;
+                    height: 17px;
+                    display: block;
+                    background: #bfbfbf;
+                    border-radius: 50%;
+                    margin: 0 52px 0 0;
+                }
+            }
+            &.is_online {
+                a {
+                    color: $colorText;
+                    &:before {
+                        background: $colorButton;
+                    }
+                }
+            }
+        }
+    }
+    .ref {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 37px 53px 37px 46px;
+        font-weight: 400;
+        background: #f2f2f2;
+        font-size: 1.666em;
+        width: 100%;
+        box-sizing: border-box;
+        .arrow {
+            position: relative;
+            display: block;
+            width: 55px;
+            height: 40px;
+            span {
+                position: absolute;
+                right: 0;
+                top: 18px;
+                width: 100%;
+                height: 4px;
+                background: $colorLink;
+                display: block;
+                &:before,
+                &:after {
+                    content: '';
+                    position: absolute;
+                    background: $colorLink;
+                    width: 24px;
+                    height: 4px;
+                    display: block;
+                }
+                &:before {
+                    right: -2px;
+                    top: -9px;
+                    transform: rotate(47deg);
+                }
+                &:after {
+                    top: 9px;
+                    transform: rotate(-45deg);
+                    right: -2px;
+                }
+            }
+        }
+    }
+    @include bp($Mobile) {
+        &__create {
+            padding: 25px;
+            letter-spacing: 1px;
+            .icon-create {
+                width: 20px;
+                height: 20px;
+                margin-right: 20px;
+                &:before,
+                &:after {
+                    width: 2px;
+                }
+            }
+        }
+        .chat-list {
+            &__item {
+                border-top: 2px solid #ededed;
+                a {
+                    padding: 30px;
+                    &:before {
+                        width: 8px;
+                        height: 8px;
+                        margin: 0 26px 0 0;
+                    }
+                }
+            }
+        }
+        .ref {
+            padding: 18px 26px 18px 23px;
+            .arrow {
+                width: 27px;
+                height: 20px;
+                span {
+                    top: 9px;
+                    height: 2px;
+                    &:before,
+                    &:after {
+                        width: 12px;
+                        height: 2px;
+                    }
+                    &:before {
+                        right: -1px;
+                        top: -4px;
+                    }
+                    &:after {
+                        top: 4px;
+                        right: -1px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.support-dialog {
+    .dialog-list {
+        margin: 0 0 55px;
+        &__item {
+            display: flex;
+            align-items: flex-start;
+            flex-direction: row;
+            justify-content: space-between;
+            margin: 0 0 55px;
+            &:last-child {
+                margin: 0;
+            }
+            .avatar {
+                display: inline-block;
+                width: 90px;
+                height: 90px;
+                flex-shrink: 0;
+            }
+            .message-info {
+                display: inline-block;
+                width: calc(100% - 125px);
+                .message {
+                    display: block;
+                    padding: 25px 30px;
+                    line-height: 1.467;
+                    font-size: 1.083em;
+                    margin: 0 0 18px;
+                }
+                .time {
+                    display: block;
+                    color: $colorTextHalf;
+                }
+            }
+            &-finhub {
+                .message-info {
+                    .message {
+                        background: #ede6fa;
+                        position: relative;
+                        &:before {
+                            content: '';
+                            display: block;
+                            position: absolute;
+                            left: -13px;
+                            top: 28%;
+                            border: 13px solid transparent;
+                            border-bottom-color: #ede6fa;
+                            transform: translateY(-50%) rotate(45deg);
+                        }
+                    }
+                    .time {
+                        text-align: right;
+                    }
+                }
+            }
+            &-user {
+                flex-direction: row-reverse;
+                .message-info {
+                    .message {
+                        background: #f2f2f2;
+                        padding: 36px 38px;
+                        margin: 0 0 17px;
+                    }
+                }
+            }
+        }
+    }
+    .dialog__date {
+        text-align: center;
+        position: relative;
+        font-size: 1.166em;
+        color: $colorTextHalf;
+        margin: 0 0 65px;
+        &:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 100%;
+            height: 2px;
+            background: $colorTextLight;
+        }
+        span {
+            background: #fff;
+            position: relative;
+            padding: 0 15px;
+            display: inline-block;
+        }
+    }
+    .send-message {
+        position: fixed;
+        box-sizing: border-box;
+        padding: 0 50px;
+        z-index: 100;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background: #f2f2f2;
+        .form {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 120px;
+            .form__field {
+                display: inline-block;
+                &:first-child {
+                    width: calc(100% - 85px);
+                }
+                &:last-child {
+                    width: 55px;
+                }
+                textarea {
+                    border: none;
+                    font-size: 1.33em;
+                    font-weight: 300;
+                    letter-spacing: 2px;
+                    background: transparent;
+                    max-width: 100%;
+                    width: 100%;
+                    resize: none;
+                    padding: 40px 0 0;
+                    max-height: 100%;
+                }
+                .icon-send {
+                    font-size: 1.9em;
+                    margin: 10px 3px 0 0;
+                    display: block;
+                }
+            }
+        }
+    }
+    @include bp($Mobile) {
+        .dialog-list {
+            margin: 0 0 27px;
+            &__item {
+                margin: 0 0 27px;
+                .avatar {
+                    width: 45px;
+                    height: 45px;
+                }
+                .message-info {
+                    width: calc(100% - 62px);
+                    .message {
+                        padding: 12px 15px;
+                        margin: 0 0 9px;
+                    }
+                }
+                &-finhub {
+                    .message-info {
+                        .message {
+                            &:before {
+                                left: -6px;
+                                border: 6px solid transparent;
+                            }
+                        }
+                    }
+                }
+                &-user {
+                    flex-direction: row-reverse;
+                    .message-info {
+                        .message {
+                            padding: 18px 19px;
+                            margin: 0 0 8px;
+                        }
+                    }
+                }
+            }
+        }
+        .dialog__date {
+            margin: 0 0 32px;
+            &:before {
+                height: 1px;
+            }
+            span {
+                padding: 0 7px;
+            }
+        }
+        .send-message {
+            padding: 0 25px;
+            .form {
+                height: 60px;
+                .form__field {
+                    &:first-child {
+                        width: calc(100% - 42px);
+                    }
+                    &:last-child {
+                        width: 27px;
+                    }
+                    textarea {
+                        letter-spacing: 1px;
+                        padding: 20px 0 0;
+                    }
+                    .icon-send {
+                        margin: 5px 1px 0 0;
+                    }
+                }
+            }
+        }
+    }
+}

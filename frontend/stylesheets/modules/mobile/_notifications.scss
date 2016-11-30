@@ -1,0 +1,102 @@
+.notifications {
+    .notifications-holder {
+        width: 84.6%;
+        left: 15.5%;
+        .notifications-title {
+            padding: 60px 0 50px 60px;
+            width: 100%;
+            background: #f2f2f2;
+            border-bottom: 2px solid #cecece;
+            span {
+                font-size: 1.5em;
+                color: $colorText;
+            }
+        }
+        .notif-list {
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            background: #fc9;
+            &__item {
+                background: #f2f2f2;
+                border-bottom: 2px solid #cecece;
+                & > a {
+                    position: relative;
+                    display: block;
+                    padding: 47px 30px 41px 134px;
+                    &:before {
+                        font-family: 'icomoon';
+                        position: absolute;
+                        left: 70px;
+                        top: 40px;
+                        color: $colorText;
+                    }
+                }
+                .item-title {
+                    font-size: 1.166em;
+                    line-height: 1.2;
+                    font-weight: 300;
+                    margin-bottom: 15px;
+                    color: $colorText;
+                    display: block;
+                }
+                .item-date {
+                    font-size: 1.166em;
+                    line-height: 1.2;
+                    color: $colorTextLight;
+                    display: block;
+                }
+                .item-descr {
+                    display: block;
+                    font-size: 1em;
+                    line-height: 1.45em;
+                    color: $colorTextHalf;
+                    margin-bottom: 15px;
+                }
+                .item-readmore {
+                    font-size: 1.166em;
+                    line-height: 1.2;
+                    display: block;
+                    margin-bottom: 19px;
+                }
+                .credit {
+                    &:before {
+                        content: "\e905";
+                        font-size: 1.8em;
+                    }
+                }
+                .partners {
+                    &:before {
+                        content: "\e914";
+                        font-size: 1.8em;
+                    }
+                }
+                .support {
+                    &:before {
+                        content: "\e909";
+                        font-size: 1.8em;
+                    }
+                }
+            }
+        }
+    }
+    @include bp($Mobile) {
+        .notifications-holder {
+            .notifications-title {padding: 30px 0 25px 30px;}
+            .notif-list {
+                &__item {
+                    & > a {
+                        padding: 20px 15px 20px 65px;
+                        &:before {
+                            left: 30px;
+                            top: 15px;
+                        }
+                    }
+                    .item-title {margin-bottom: 7px;}
+                    .item-descr {margin-bottom: 7px;}
+                    .item-readmore {margin-bottom: 8px;}
+                }
+            }
+        }
+    }
+}

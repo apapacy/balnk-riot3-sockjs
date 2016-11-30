@@ -1,0 +1,113 @@
+.history {
+    padding: 17px 50px;
+    .history-content {
+        .title-history {
+            font-size: 1.666em;
+            margin: 0 0 32px;
+            letter-spacing: -.3px;
+        }
+        .titles-tablet {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 1.166em;
+            margin-bottom: 18px;
+            color: $colorTextHalf;
+            &__close {
+                display: inline-block;
+                width: 32%;
+            }
+            &__credit,
+            &__request {
+                display: inline-block;
+                width: 66.3%;
+            }
+        }
+        .history-list {
+            margin: 0 0 35px 0;
+            &__item {
+                display: flex;
+                justify-content: space-between;
+                padding: 54px 0 53px 0;
+                border-bottom: 2px solid #ededed;
+                &:first-child {
+                    border-top: 2px solid #ededed;
+                }
+                &:last-child {
+                    border-bottom: none;
+                }
+            }
+            &__date {
+                display: inline-block;
+                width: 32%;
+                font-size: 1.333em;
+            }
+            &__info {
+                display: inline-block;
+                width: 66.6%;
+                .number {
+                    display: block;
+                    margin-bottom: 9px;
+                    font-size: 1.333em;
+                }
+                .keeping {
+                    display: block;
+                    margin-bottom: 21px;
+                    font-size: 1.166em;
+                }
+                .why {
+                    display: block;
+                    margin-bottom: 20px;
+                    font-size: 1.166em;
+                    color: $colorTextHalf;
+                }
+                .status {
+                    text-transform: uppercase;
+                    font-weight: 500;
+                    color: $colorButtonSecond;
+                    font-size: 1em;
+                    letter-spacing: 2px;
+                    &.nay,
+                    &.not-given {
+                        color: $colorError;
+                    }
+                    &.not-provided,
+                    &.canceled {
+                        color: $colorTextHalf;
+                    }
+                }
+            }
+        }
+    }
+    @include bp($Mobile) {
+        padding: 8px 25px;
+        .history-content {
+            .title-history {
+                margin: 0 0 16px;
+            }
+            .titles-tablet {
+                margin-bottom: 9px;
+            }
+            .history-list {
+                margin: 0 0 17px 0;
+                &__item {
+                    padding: 27px 0 26px 0;
+                }
+                &__info {
+                    .number {
+                        margin-bottom: 4px;
+                    }
+                    .keeping {
+                        margin-bottom: 10px;
+                    }
+                    .why {
+                        margin-bottom: 10px;
+                    }
+                    .status {
+                        letter-spacing: 1px;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -41,7 +41,7 @@ var config = {
     stylesheets: {
       minify: env !== 'dev',
       paths: {
-        '': './frontend'
+        'css': './frontend/stylesheets'
       },
       extensions: ['scss', 'css'],
       autoprefixer: [
@@ -134,7 +134,7 @@ var config = {
     //    cert: path.join(__dirname, 'config', 'keys', 'server', 'fullchain.pem')
     //  }
     },
-    WAIT: 5000,
+    WAIT: 1000,
   },
   generate: {
     assets: {

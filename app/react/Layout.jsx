@@ -20,7 +20,8 @@ export default class Layout extends React.Component {
                 </head>
                 <body>
                     {this.props.children}
-                    <script async src='http://localhost:3001/browser-sync/browser-sync-client.js?v=2.18.2'></script>
+                    <script async src='http://localhost:3000/browser-sync/browser-sync-client.js?v=2.18.2'></script>
+                    <script async src={this.props.mainScript}></script>
                 </body>
             </html>
         )

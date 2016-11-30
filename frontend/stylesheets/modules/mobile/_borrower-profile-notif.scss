@@ -1,0 +1,80 @@
+.borrower-profile-notif {
+    display: block;
+    width: 100%;
+    .form {
+        .form__field {
+            padding: 15px 0;
+            margin: 0 0 25px;
+            .checkbox-slider {
+                height: 72px;
+                line-height: 72px;
+                .checkbox:not(:checked) {
+                    & + label {
+                        padding: 0;
+                        width: 100%;
+                        &:before {
+                            right: 0;
+                            left: auto;
+                        }
+                        &:after {
+                            right: 55px;
+                            left: auto;
+                        }
+                    }
+                }
+                .checkbox:checked {
+                    padding: 0 140px 0 0;
+                    & + label {
+                        padding: 0;
+                        width: 100%;
+                        &:before {
+                            right: 0;
+                            left: auto;
+                        }
+                        &:after {
+                            right: 10px;
+                            left: auto;
+                        }
+                    }
+                }
+                label {
+                    font-size: 1.666em;
+                }
+            }
+            .descr {
+                display: block;
+                font-size: 1.166em;
+                line-height: 1.3;
+                color: $colorTextHalf;
+                width: 75%;
+            }
+        }
+    }
+    @include bp($Mobile) {
+        .form {
+            .form__field {
+                padding: 7px 0;
+                margin: 0 0 12px;
+                .checkbox-slider {
+                    height: 36px;
+                    line-height: 36px;
+                    .checkbox:not(:checked) {
+                        & + label {
+                            &:after {
+                                right: 27px;
+                            }
+                        }
+                    }
+                    .checkbox:checked {
+                        padding: 0 70px 0 0;
+                        & + label {
+                            &:after {
+                                right: 5px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,355 @@
+.payment-tablet {
+    .title {
+        font-size: 1.716em;
+        margin: 0 0 34px 0;
+        padding: 0 50px;
+    }
+    .titles-tablet {
+        color: $colorTextHalf;
+        font-size: 1.166em;
+        padding: 0 50px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        margin-bottom: 13px;
+        &__date {
+            display: inline-block;
+            width: 32%;
+        }
+        &__needpay {
+            display: inline-block;
+            width: 70%;
+        }
+    }
+    .chart-tablet {
+        &__item {
+            padding: 58px 50px 55px 50px;
+            background: #f2f2f2;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            position: relative;
+            margin-bottom: 2px;
+        }
+        &__date {
+            display: inline-block;
+            width: 31.6%;
+            font-size: 1.166em;
+            padding-top: 7px;
+        }
+        &__today {
+             display: inline-block;
+             width: 31.6%;
+             font-size: 1.166em;
+             padding-top: 7px;
+         }
+        .icon-paid {
+            display: none;
+            width: 20px;
+            height: 20px;
+            position: absolute;
+            right: 50px;
+            top: 59px;
+            &:before,
+            &:after {
+                content: '';
+                position: absolute;
+                right: 0;
+                left: 0;
+                width: 6px;
+                height: 33px;
+                background: #00cf74;
+                transform: rotate(45deg);
+            }
+            &:after {
+                height: 19px;
+                -webkit-transform: rotate(-30deg);
+                transform: rotate(-45deg);
+                left: -16px;
+                top: 11px;
+            }
+        }
+        .icon-payment-today {
+            display: none;
+            width: 62px;
+            height: 40px;
+            position: absolute;
+            right: 35px;
+            top: 58px;
+            span {
+                position: absolute;
+                left: 10px;
+                top: 17px;
+                width: 28px;
+                height: 6px;
+                background: $colorLink;
+            }
+            &:before,
+            &:after {
+                content: '';
+                position: absolute;
+                right: 0;
+                left: 32px;
+                top: 14px;
+                width: 6px;
+                height: 25px;
+                background: $colorLink;
+                transform: rotate(45deg);
+            }
+            &:after {
+                height: 19px;
+                -webkit-transform: rotate(-30deg);
+                transform: rotate(-45deg);
+                left: 30px;
+                top: 2px;
+            }
+        }
+        .icon-delay {
+            display: none;
+            width: 7px;
+            height: 39px;
+            position: absolute;
+            right: 70px;
+            top: 60px;
+            &:before,
+            &:after {
+                content: '';
+                position: absolute;
+                right: 0;
+                left: 0;
+                top: 0;
+                width: 7px;
+                height: 24px;
+                background: red;
+            }
+            &:after {
+                width: 7px;
+                height: 7px;
+                top: auto;
+                bottom: 0;
+            }
+        }
+        &__paid {
+            display: inline-block;
+            width: 70%;
+            .general {
+                display: block;
+                font-size: 1.166em;
+                margin-bottom: 19px;
+                .value {
+                    font-size: 2.3rem;
+                    font-weight: 500;
+                    letter-spacing: 1px;
+                }
+                .currency {
+                    font-size: 1.5rem;
+                    font-weight: 400;
+                }
+            }
+            .body {
+                display: block;
+                font-size: 1.166em;
+                margin-bottom: 11px;
+                color: $colorTextHalf;
+                .value {
+                    font-size: 1.8rem;
+                    font-weight: 500;
+                    letter-spacing: 1px;
+                    color: $colorTextQuater;
+                }
+                .currency {
+                    font-size: 1.5rem;
+                    font-weight: 400;
+                    color: $colorTextQuater;
+                }
+            }
+            .procent {
+                display: block;
+                font-size: 1.166em;
+                color: $colorTextHalf;
+                .value {
+                    font-size: 1.8rem;
+                    font-weight: 500;
+                    letter-spacing: 1px;
+                    color: $colorTextQuater;
+                }
+                .currency {
+                    font-size: 1.5rem;
+                    font-weight: 400;
+                    color: $colorTextQuater;
+                }
+            }
+        }
+        .chart-tablet__item.is__paid {
+            background: #e5faf1;
+            .chart-tablet__date,
+            .chart-tablet__procent,
+            .chart-tablet__paid {
+                color: #00cf74;
+                .body,
+                .procent {
+                    color: #00cf74;
+                    .value {
+                        color: #00cf74;
+                    }
+                    .currency {
+                        color: #00cf74;
+                    }
+                }
+            }
+            .icon-paid {
+                display: block;
+            }
+        }
+        .chart-tablet__item.is__payment-today {
+            background: transparentize($colorLink, .90);
+            .chart-tablet__date,
+            .chart-tablet__procent,
+            .chart-tablet__paid {
+                color: transparentize($colorLink, .25);
+                .body,
+                .procent,
+                .general {
+                    color: transparentize($colorLink, .25);
+                    .value {
+                        color: $colorLink;
+                    }
+                    .currency {
+                        color: transparentize($colorLink, .25);
+                    }
+                }
+            }
+            .icon-payment-today {
+                display: block;
+            }
+        }
+        .chart-tablet__item.is__delay {
+            background: transparentize($colorError, .90);
+            .chart-tablet__date,
+            .chart-tablet__procent,
+            .chart-tablet__paid {
+                color: transparentize($colorError, .25);
+                .body,
+                .procent,
+                .general {
+                    color: transparentize($colorError, .25);
+                    .value {
+                        color: $colorError;
+                    }
+                    .currency {
+                        color: transparentize($colorError, .25);
+                    }
+                }
+            }
+            .icon-delay {
+                display: block;
+            }
+        }
+    }
+    @include bp($Mobile) {
+        .title {
+            margin: 0 0 17px 0;
+            padding: 0 25px;
+        }
+        .titles-tablet {
+            padding: 0 25px;
+            margin-bottom: 6px;
+        }
+        .chart-tablet {
+            &__item {
+                padding: 28px 25px 22px 25px;
+                margin-bottom: 1px;
+            }
+            &__date {
+                padding-top: 3px;
+            }
+            .icon-paid {
+                width: 10px;
+                height: 10px;
+                position: absolute;
+                right: 25px;
+                top: 29px;
+                &:before,
+                &:after {
+                    width: 3px;
+                    height: 16px;
+                }
+                &:after {
+                    height: 9px;
+                    left: -8px;
+                    top: 5px;
+                }
+            }
+            .icon-payment-today {
+                width: 31px;
+                height: 20px;
+                right: 17px;
+                top: 29px;
+                span {
+                    left: 5px;
+                    top: 8px;
+                    width: 14px;
+                    height: 3px;
+                }
+                &:before,
+                &:after {
+                    left: 16px;
+                    top: 7px;
+                    width: 3px;
+                    height: 12px;
+                }
+                &:after {
+                    height: 10px;
+                    left: 16px;
+                    top: 1px;
+                }
+            }
+            .icon-delay {
+                width: 3px;
+                height: 19px;
+                right: 34px;
+                top: 27px;
+                &:before,
+                &:after {
+                    width: 3px;
+                    height: 12px;
+                }
+                &:after {
+                    width: 3px;
+                    height: 3px;
+                }
+            }
+            &__paid {
+                .general {
+                    margin-bottom: 9px;
+                    .value {
+                        letter-spacing: 0.5px;
+                        font-size: 1.3rem;
+                    }
+                    .currency {
+                        font-size: 0.9rem;
+                    }
+                }
+                .body {
+                    margin-bottom: 5px;
+                    .value {
+                        letter-spacing: 0.5px;
+                        font-size: 1.3rem;
+                    }
+                    .currency {
+                        font-size: 0.9rem;
+                    }
+                }
+                .procent {
+                    .value {
+                        letter-spacing: 0.5px;
+                        font-size: 1.4rem;
+                    }
+                    .currency {
+                        font-size: 0.9rem;
+                    }
+                }
+            }
+        }
+    }
+}

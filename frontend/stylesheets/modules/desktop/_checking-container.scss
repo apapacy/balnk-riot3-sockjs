@@ -1,0 +1,105 @@
+.checking-container{
+	text-align: center;
+	&.phone{
+		h3{
+			&:before{
+				content: '\e90e';
+				font-family: 'icomoon';
+				background: #e2e2e2;
+				width: 110px;
+				height: 110px;
+				line-height:110px;
+				color: #fff;
+				font-size: 2em;
+				display: block;
+				margin: 0 auto 40px;
+				border-radius: 50%;
+			}
+		}
+		.js-sms-code {
+			padding-left: 8px;
+			font-size: 20px;
+			left: 2px;
+			box-sizing: border-box;
+		}
+		@include placeholder {
+			font-size: 20px;
+		}
+	}
+	&.email{
+		h3{
+			&:before{
+				content: "\e908";
+				font-family: 'icomoon';
+				background: #e2e2e2;
+				width: 110px;
+				height: 110px;
+				line-height:110px;
+				color: #fff;
+				font-size: 1.5em;
+				display: block;
+				margin: 0 auto 40px;
+				border-radius: 50%;
+			}
+			span{
+				display: block;
+			}
+		}
+		.checking-container__subtitle{
+			color: $colorText;
+		}
+		.button{
+			margin: 0 0 25px;
+		}
+	}
+	&.success-ivestition {
+		h3{
+			margin-bottom: 12px;
+			&:before{
+				content: "\e90f";
+				font-family: 'icomoon';
+				background: #e2e2e2;
+				width: 110px;
+				height: 110px;
+				line-height:110px;
+				color: #fff;
+				font-size: 2em;
+				display: block;
+				margin: 0 auto 40px;
+				border-radius: 50%;
+			}
+		}
+		.button {
+			max-width: 262px;
+			padding:23px 42px;
+		}
+	}
+	&__subtitle{
+		color: $colorTextHalf;
+		margin: 0 0 65px;
+		max-width: 510px;
+		line-height:1.5;
+		.success-ivestition & {
+			margin: 0 auto;
+			span {
+				display: block;
+			}
+		}
+	}
+	.form{
+		width: 204px;
+		margin: 0 auto;
+		label{
+			width:100%;
+			text-align: center;
+		}
+	}
+	.note{
+		color: $colorTextHalf;
+		margin: 0 0 15px;
+	}
+}
+.section.credit-confirmation{
+	max-width: 500px;
+	margin: 0 auto;
+}

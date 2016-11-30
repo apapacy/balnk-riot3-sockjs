@@ -1,0 +1,166 @@
+.borrower-onecredit {
+    display: block;
+    width: 100%;
+    &__period {
+        font-size: 1.166em;
+        color: $colorTextHalf;
+        margin-bottom: 54px;
+    }
+    &__status {
+        font-size: 1.666em;
+        margin: 0 0 32px;
+    }
+    &__summ {
+        margin: 0 0 18px;
+        .summ-txt {
+            font-size: 1.166em;
+            color: $colorTextHalf;
+            display: block;
+            margin: 0 0 15px;
+        }
+        .summ-value {
+            display: inline-block;
+            font-size: 3em;
+        }
+        .currency {
+            display: inline-block;
+            font-size: 1.75em;
+            padding: 0 0 0 10px;
+        }
+    }
+    &__target,
+    &__procent,
+    &__term {
+        margin: 0 0 24px;
+        .name {
+            font-size: 1.167em;
+            color: $colorTextHalf;
+        }
+        .why {
+            font-size: 1.166em;
+            color: $colorTextQuater;
+            padding: 0 0 0 9px;
+        }
+        .value {
+            font-size: 1.33em;
+            color: $colorTextQuater;
+            padding: 0 0 0 9px;
+        }
+        .currency {
+            font-size: 1.166em;
+            color: $colorTextQuater;
+        }
+    }
+    &__title {
+        margin: 0 0 35px;
+        text-align: center;
+        span {
+            display: block;
+            font-size: 1.916em;
+            line-height: 1.24;
+            padding: 0 20px;
+        }
+        .title-value {
+            display: inline-block;
+            padding: 0;
+            font-size: 2.5em;
+        }
+        .currency {
+            display: inline-block;
+            padding: 0;
+        }
+        &:before {
+            content: '\e91b';
+            font-family: 'icomoon';
+            background: #e2e2e2;
+            width: 220px;
+            height: 220px;
+            line-height: 220px;
+            color: #fff;
+            font-size: 2.8em;
+            display: block;
+            margin: 60px auto 43px;
+            border-radius: 50%;
+        }
+    }
+    &__subtitle {
+        display: block;
+        padding: 0 45px;
+        text-align: center;
+        margin: 0 0 60px;
+        font-size: 1.166em;
+        line-height: 1.39;
+        color: $colorTextQuater;
+    }
+    .button {
+        background: $colorLink;
+        color: #fff;
+    }
+    &.canceled {
+        .borrower-onecredit__title {
+            margin: 0 0 28px;
+            &:before {
+                content: '\e91c';
+            }
+        }
+    }
+    &.not-provided {
+        .borrower-onecredit__title {
+            margin: 0 0 18px;
+        }
+    }
+    @include bp($Mobile) {
+        &__period {
+            margin-bottom: 27px;
+        }
+        &__status {
+            margin: 0 0 16px;
+        }
+        &__summ {
+            margin: 0 0 9px;
+            .summ-txt {
+                margin: 0 0 7px;
+            }
+            .currency {
+                padding: 0 0 0 5px;
+            }
+        }
+        &__target,
+        &__procent,
+        &__term {
+            margin: 0 0 12px;
+            .why {
+                padding: 0 0 0 4px;
+            }
+            .value {
+                padding: 0 0 0 4px;
+            }
+        }
+        &__title {
+            margin: 0 0 17px;
+            span {
+                padding: 0 10px;
+            }
+            &:before {
+                width: 110px;
+                height: 110px;
+                line-height: 110px;
+                margin: 30px auto 21px;
+            }
+        }
+        &__subtitle {
+            padding: 0 22px;
+            margin: 0 0 30px;
+        }
+        &.canceled {
+            .borrower-onecredit__title {
+                margin: 0 0 14px;
+            }
+        }
+        &.not-provided {
+            .borrower-onecredit__title {
+                margin: 0 0 9px;
+            }
+        }
+    }
+}

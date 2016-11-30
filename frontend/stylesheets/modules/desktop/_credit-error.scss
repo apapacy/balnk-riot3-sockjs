@@ -1,0 +1,33 @@
+.credit-error{
+    max-width: 400px;
+    text-align: center;
+    padding: 45px 0;
+    h3{
+        line-height: 1.5;
+        &:before{
+            content: '\e90e';
+            font-family: 'icomoon';
+            background: #e2e2e2;
+            width: 110px;
+            height: 110px;
+            line-height: 110px;
+            color: #fff;
+            font-size: 1.8em;
+            display: block;
+            margin: 0 auto 30px;
+            border-radius: 50%;
+        }
+    }
+    .subtitle{
+        padding: 0 40px;
+        margin: 0 0 45px;
+        line-height: 1.5;
+        color: $colorTextHalf;
+    }
+    .button{
+        color: #fff;
+        &:hover{
+            color: #fff;
+        }
+    }
+}

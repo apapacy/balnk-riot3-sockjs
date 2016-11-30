@@ -1,0 +1,79 @@
+#wrapper{
+	min-height: 100vh;
+	display: flex;
+	flex-direction: row;
+	align-items: stretch;
+}
+#header{
+	flex-shrink: 0;
+	display: flex;
+	flex-direction: column;
+	background: $colorLink;
+	align-items: center;
+	justify-content: flex-start;
+	padding: 3.24% 0 2.4%;
+	position: relative;
+	z-index:100;
+	//height: 100vh;
+	//box-sizing: border-box;
+	@include bp-height(600){
+		padding: 2% 0;
+	}
+	.with-sidebar & {
+		z-index: 101;
+	}
+}
+#main{
+	display: flex;
+	align-items: center;
+	flex-grow: 1;
+	justify-content: center;
+	position: relative;
+	//@include anim($param: transform, $dur: .5s);
+	//transform-origin: 0;
+	//will-change: transform;
+	//.popup-opened & {
+	//	transform: translateX(110px);
+	//}
+	.fp-tableCell{
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
+}
+#main-hidder{
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background: transparentize(#000, .25);
+	transform: rotateY(90deg);
+	transform-origin: 0;
+	z-index: 10;
+	@include anim($param: transform, $dur: .5s);
+	will-change: transform;
+	.popup-opened & {
+		transform: rotateY(0deg);
+	}
+}
+#site-sidebar{
+	width:340px;
+	flex-shrink: 0;
+	display: flex;
+	position: relative;
+	z-index:100;
+	@include anim($param: width);
+	will-change: width;
+	transform-origin: 0;
+	@include bp($tablet){
+		width: 280px;
+	}
+}
+#scroll-nav{
+	position: fixed;
+	right: 69px;
+	top: 50%;
+	transform: translateY(-50%);
+	text-align: right;
+}

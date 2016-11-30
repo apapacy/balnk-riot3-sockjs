@@ -1,0 +1,22 @@
+.info-section{
+	max-width: 750px;
+	.form{
+		&__field{
+			display: inline-block;
+			label{
+				text-align: center;
+				width: 100%;
+			}
+		}
+		select{
+			position: absolute;
+			left: -9999px;
+		}
+		.select2-selection{
+			&__rendered{
+				color: $colorLink;
+				border-bottom: 2px dashed $colorLink;
+			}
+		}
+	}
+}

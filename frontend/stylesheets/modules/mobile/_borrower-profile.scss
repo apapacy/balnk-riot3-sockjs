@@ -1,0 +1,211 @@
+.borrower-profile {
+    display: block;
+    width: 100%;
+    &__general {
+        background: #f2f2f2;
+        padding: 70px 50px 66px 50px;
+    }
+    &__info {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: space-between;
+        margin: 0 0 51px;
+        .avatar {
+            display: block;
+            width: 220px;
+            height: 220px;
+            margin: 0 0 20px;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+        .username {
+            margin: 0 0 3px;
+        }
+        .id-user {
+            font-size: 1.166em;
+            color: $colorTextHalf;
+        }
+    }
+    &__status {
+        .profile {
+            &__risk-bar{
+                &.progress-bar{
+                    width: 100%;
+                    margin: 0 0 36px;
+                    height: 16px;
+                    .progress-bar__line {
+                        height: 16px;
+                        &.small {
+                            background: $colorMild;
+                            width: 40.8%;
+                        }
+                        &.normal {
+                            background: $colorButtonSecond;
+                            width: 66.66%;
+                        }
+                        &.high {
+                            background: $colorError;
+                            width: 100%;
+                        }
+                    }
+                }
+            }
+            &__risk-title {
+                position: relative;
+                display: inline-block;
+                font-size: 1.166em;
+                margin: 0 0 33px;
+                &:before {
+                    content: '?';
+                    position: absolute;
+                    right: -57px;
+                    top: -6px;
+                    width: 36px;
+                    height: 36px;
+                    line-height: 40px;
+                    text-align: center;
+                    border-radius: 50%;
+                    color: $colorTextHalf;
+                    border: 2px solid $colorTextHalf;
+                }
+            }
+            &__risk-status {
+                font-size: 1.33em;
+                font-weight: 400;
+                &.small {
+                    color: $colorMild;
+                }
+                &.normal {
+                    color: $colorButtonSecond;
+                }
+                &.high {
+                    color: $colorError;
+                }
+            }
+        }
+    }
+    .borrower-profile__nav {
+        padding: 0 0 0 50px;
+        &_item {
+            padding: 52px 0;
+            border-bottom: 2px solid #ededed;
+            &:last-child {
+                border-bottom: none;
+            }
+            a {
+                display: block;
+                font-size: 1em;
+                font-weight: 500;
+                text-transform: uppercase;
+                padding: 0 0 0 78px;
+                letter-spacing: 2.4px;
+                position: relative;
+                &:before {
+                    font-family: 'icomoon';
+                    position: absolute;
+                    left: 8px;
+                    top: 30%;
+                    transform: translateY(-50%);
+                    color: #8556de;
+                    font-size: 1.74em;;
+                }
+                &.data-link {
+                    &:before {
+                        content: "\e90b";
+                        top: 44%;
+                        left: 11px;
+                        font-size: 1.65em;
+                    }
+                }
+                &.notifications-link {
+                    &:before {
+                        content: "\e912";
+                        left: 9px;
+                        font-size: 1.5em;
+                        top: 36%;
+                    }
+                }
+                &.devices-link {
+                    &:before {
+                        content: "\e906";
+                        left: 11px;
+                        top: 42%;
+                    }
+                }
+                &.change-password-link {
+                    &:before {
+                        content: "\e902";
+                    }
+                }
+            }
+        }
+    }
+    @include bp($Mobile) {
+        &__general {
+            padding: 35px 25px 33px 25px;
+        }
+        &__info {
+            margin: 0 0 25px;
+            .avatar {
+                width: 110px;
+                height: 110px;
+                margin: 0 0 10px;
+            }
+            .username {
+                margin: 0 0 1px;
+            }
+        }
+        &__status {
+            .profile {
+                &__risk-bar{
+                    &.progress-bar{
+                        margin: 0 0 18px;
+                        height: 8px;
+                        .progress-bar__line {
+                            height: 8px;
+                        }
+                    }
+                }
+                &__risk-title {
+                    margin: 0 0 16px;
+                    &:before {
+                        right: -28px;
+                        top: -5px;
+                        width: 18px;
+                        height: 18px;
+                        line-height: 20px;
+                    }
+                }
+            }
+        }
+        .borrower-profile__nav {
+            padding: 0 0 0 25px;
+            &_item {
+                padding: 26px 0;
+                a {
+                    padding: 0 0 0 39px;
+                    letter-spacing: 1.4px;
+                    &:before {
+                        left: 4px;
+                    }
+                    &.data-link {
+                        &:before {
+                            left: 5px;
+                        }
+                    }
+                    &.notifications-link {
+                        &:before {
+                            left: 5px;
+                        }
+                    }
+                    &.devices-link {
+                        &:before {
+                            left: 5px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
