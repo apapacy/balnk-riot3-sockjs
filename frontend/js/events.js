@@ -6,3 +6,4 @@ module.exports =  {
     randomValueChanged: 'firstRandomValueChanged',
   }
 };
+alert(9)

@@ -1,5 +1,5 @@
-import {Service} from 'services/Service';
-import 'riotcontrol';
+import {Service} from './Service';
+import RiotControl from 'RiotControl';
 import events from 'events';
 
 class First extends Service {

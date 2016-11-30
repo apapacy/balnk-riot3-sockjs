@@ -3,23 +3,7 @@
   requirejs.config({
     "urlArgs":     `bust=${Math.random()}`,
     "baseUrl": '/dependencies/js',
-    "waitSeconds": 300,
-    "paths": {},
-    "map": {
-    },
-    'shim': {
-      'riot/frontend-tag': {
-        deps: ['jquery', 'jquery.mask', 'lodash',]
-      },
-      'jquery.mask': {
-        deps: ['jquery',]
-      },
-    },
-    config: {
-      template: {
-        prefix: 'templates/'
-      },
-    },
+    "waitSeconds": 30000,
   });
 
   requirejs([

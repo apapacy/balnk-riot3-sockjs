@@ -3,6 +3,8 @@
 const gulp = require('gulp');
 const path = require('path');
 const branderGulp = require('brander-gulp-tasks');
+const webpack = require('gulp-webpack');
+
 
 var env = process.env.NODE_ENV || process.env.SYMFONY_ENV || 'dev';
 var config = {
@@ -84,7 +86,7 @@ var config = {
   build: {
     rjs: {
       entryPoints: {
-        'config/require.config': {},
+        'config/require.config.js': {},
       },
       defaultOptions: {
         includeNestedDependencies: true,
@@ -167,6 +169,22 @@ gulp.task('sock',['default', 'riot:frontend', 'ts']);
 gulp.task('sock:watch',['default', 'riot:frontend:watch', 'watch', 'ts:watch']);
 gulp.task('sock:sync',['sync', 'sock:watch']);
 
+
+gulp.task('react-watch', function() {
+  return gulp.src('*')
+    .pipe(webpack(require('./webpack.config.js')(true)))
+    .pipe(gulp.dest('public/assets')/*, {
+      output: "[name].bundle.js"
+    }*/);
+});
+
+gulp.task('react-build', function() {
+  return gulp.src('*')
+    .pipe(webpack(require('./webpack.config.js')(false)))
+    .pipe(gulp.dest('public/assets')/*, {
+      output: "[name].bundle.js"
+    }*/);
+});
 
 
 

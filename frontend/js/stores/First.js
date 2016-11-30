@@ -1,7 +1,7 @@
 import {Store} from './Store'
 import * as riot from 'riot';
-import services from 'services';
-import events from 'events';
+import services from '../services';
+import events from '../events';
 
 class First extends Store {
 
