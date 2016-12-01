@@ -4,11 +4,17 @@ import ReactDOM from 'react-dom';
 import Layout from 'react/Layout'
 
 export class Inner extends React.Component {
+  constructor(props){
+    super(props);
+    console.log('555555555555555555555555555')
+    console.log(props)
+  }
   render() {
     return (
       <Layout {...this.props}>
       <div id='root'>
-      next++++++++++*********{this.props.p1}
+      {JSON.stringify(this.props)}
+      next++++++++++*********{this.props.p1}{this.props.b}8888888888
       </div>
       </Layout>
     )
@@ -22,7 +28,7 @@ Inner.defaultProps = {
 
 Inner.description = 'Описание для вывдоа в списке компонентов'
 Inner.queryString = {
- 'описание1': {"это руччкий текст":1, b:2},
+ 'описание1': {"это руccкий текст":1, b:2},
  'описание2': {a:3, b:4},
 }
 

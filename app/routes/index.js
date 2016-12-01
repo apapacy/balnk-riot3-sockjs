@@ -10,7 +10,6 @@ import * as glob from 'glob-all';
 import {Index} from 'react/markup/Index';
 import {prepareQueryParameters} from 'utils/util'
 
-/* GET home page. */
 router.get('/', function(req, res, next) {
   const paths = glob.sync(['app/react/**/*.jsx']);
   const components = [];
@@ -33,11 +32,12 @@ router.get('/', function(req, res, next) {
       }
     }
   }
-  var Element = React.createElement(Index, {
+  const Element = React.createElement(Index, {
     name: 'Component',
     components
   }, null);
-  var output = ReactDOMServer.renderToString(Element, {components:components});
+  const props = Object.assign({}, {components:components}, req.query);
+  const output = ReactDOMServer.renderToString(Element, props);
   res.send('<!DOCTYPE html>\n' + output);
 });
 
@@ -47,15 +47,13 @@ router.get('/riot(/*)?', function(req, res, next) {
 });
 
 router.all('/react/(*)', function(req, res, next) {
-  var Component = require('react/' + req.params[0]);
+  let Component = require('react/' + req.params[0]);
   if (typeof Component.default === 'function') {
     Component = Component.default;
   }
-
-  var Element = React.createElement(Component, {
-    name: 'Component'
-  }, null);
-  var output = ReactDOMServer.renderToString(Element, {});
+  const props = Object.assign({name: 'Component'}, req.query);
+  const Element = React.createElement(Component, props, null);
+  const output = ReactDOMServer.renderToString(Element,props);
   res.send('<!DOCTYPE html>\n' + output);
 });
 

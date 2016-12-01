@@ -4,6 +4,6 @@ import {Div} from './Div'
 
 ReactDOM.render(
   <h1>Hello, world!<Div/></h1>,
-  document.getElementById('root')
+  //document.getElementById('root')
 );
 alert(4)
