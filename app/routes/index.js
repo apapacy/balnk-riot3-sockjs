@@ -8,6 +8,7 @@ import ReactDOM from 'react-dom';
 import ReactDOMServer from 'react-dom/server';
 import * as glob from 'glob-all';
 import {Index} from 'react/markup/Index';
+import {prepareQueryParameters} from 'utils/util'
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -19,11 +20,18 @@ router.get('/', function(req, res, next) {
     if (typeof component.default === 'function') {
       component = component.default;
     }
-    console.log(component.description)
     components.push({
-      name: path,
+      path,
       description: component.description,
     });
+    if (typeof component.queryString === 'object') {
+      for (let description in component.queryString) {
+        components.push({
+          path: path + prepareQueryParameters(component.queryString[description]),
+          description,
+        });
+      }
+    }
   }
   var Element = React.createElement(Index, {
     name: 'Component',

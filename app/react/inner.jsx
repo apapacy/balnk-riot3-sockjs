@@ -4,10 +4,6 @@ import ReactDOM from 'react-dom';
 import Layout from 'react/Layout'
 
 export class Inner extends React.Component {
-  constructor(...props){
-    super(...props);
-    props.p1='first';
-  }
   render() {
     return (
       <Layout {...this.props}>
@@ -20,11 +16,15 @@ export class Inner extends React.Component {
 }
 
 Inner.defaultProps = {
-  p1: 'second',
+  p1: 'second-----------',
   mainScript: 'test.js'
 }
 
 Inner.description = 'Описание для вывдоа в списке компонентов'
+Inner.queryString = {
+ 'описание1': {"это руччкий текст":1, b:2},
+ 'описание2': {a:3, b:4},
+}
 
 export default Inner
 // export default connect(mapStateToProp)(Component);

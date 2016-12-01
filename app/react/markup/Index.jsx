@@ -1,18 +1,16 @@
 "use strict";
 import React from 'react';
-import ReactDOM from 'react-dom';
+import If from 'react/utils/If';
 
 export class Index extends React.Component {
-    constructor(...props) {
-        super(...props);
-        console.log(this.props)
-    }
     render() {
         return (
             <ul>
-                {this.props.components && this.props.components.map((item) => <li key={item.name}>
-                    <a href={'/' + item.name}>{item.name}  {item.description}</a>
-                </li>)}
+                {this.props.components && this.props.components.map((item) => <If if={item.description}>
+                    <li key={item.path}>
+                        <a href={'/' + item.path}>{item.path} {item.description}</a>
+                    </li>
+                </If>)}
             </ul>
         )
     }
