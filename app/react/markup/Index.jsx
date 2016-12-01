@@ -10,8 +10,8 @@ export class Index extends React.Component {
     render() {
         return (
             <ul>
-                {this.props.components && this.props.components.map((item) => <li>
-                    <a href={'/' + item.name}>{item.name}   {item.description}</a>
+                {this.props.components && this.props.components.map((item) => <li key={item.name}>
+                    <a href={'/' + item.name}>{item.name}  {item.description}</a>
                 </li>)}
             </ul>
         )
