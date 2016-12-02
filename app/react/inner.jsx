@@ -12,9 +12,9 @@ export class Inner extends React.Component {
   render() {
     return (
       <Layout {...this.props}>
-      <div id='root'>
+      <div id='root00'>
       {JSON.stringify(this.props)}
-      next++++++++++*********{this.props.p1}{this.props.b}8888888888
+      next++++++++++*********{this.props.p1}{this.props.b1}8888888888
       </div>
       </Layout>
     )
@@ -23,7 +23,7 @@ export class Inner extends React.Component {
 
 Inner.defaultProps = {
   p1: 'second-----------',
-  mainScript: 'test.js'
+  footerScript: 'markup/index'
 }
 
 Inner.description = 'Описание для вывдоа в списке компонентов'

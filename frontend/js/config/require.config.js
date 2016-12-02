@@ -6,7 +6,7 @@
     "waitSeconds": 30000,
   });
 
-  requirejs([
-    'main'
-  ], function() {alert(2)})
+  //requirejs([
+  //  'markup/index'
+  //], function() {})
 }());
