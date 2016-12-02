@@ -6,8 +6,6 @@ import Layout from 'react/Layout'
 export class Inner extends React.Component {
   constructor(props){
     super(props);
-    console.log('555555555555555555555555555')
-    console.log(props)
   }
   render() {
     return (

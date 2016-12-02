@@ -5,4 +5,6 @@ import Inner from 'react/inner';
 alert(1)
 
 const inner = React.createElement(Inner, {b1: 'new b-1'}, null)
-ReactDOM.render(inner, document.getElementsByTagName('body')[0])
+alert(2)
+ReactDOM.render(inner, document.getElementById('root'))
+alert(3)
