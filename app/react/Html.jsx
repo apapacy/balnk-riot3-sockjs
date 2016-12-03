@@ -19,17 +19,13 @@ export default class Layout extends React.Component {
                     <script src={assets('js/config/require.config.js')} type='text/javascript'></script>
                 </head>
                 <body>
-                  <div id='root'>
                     {this.props.children}
-                  </div>
                 </body>
             </html>;
         } else {
-            component = <div id='root'>
-                {this.props.children}
-            </div>;
-        }
+            component =                 this.props.children
 
+        }
         return component;
     }
 }

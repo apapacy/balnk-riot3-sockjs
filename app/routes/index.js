@@ -14,7 +14,7 @@ router.get('/', function(req, res, next) {
   const paths = glob.sync(['app/react/**/*.jsx']);
   const components = [];
   for (let i: number = 0; i < paths.length; i++) {
-    let path = paths[i].substring(4)
+    let path = paths[i].substring(4).replace(/\..+$/, '')
     let component = require(path);
     if (typeof component.default === 'function') {
       component = component.default;
@@ -51,9 +51,9 @@ router.all('/react/(*)', function(req, res, next) {
   if (typeof Component.default === 'function') {
     Component = Component.default;
   }
-  const props = Object.assign({name: 'Component'}, req.query);
+  const props = Object.assign({name: 'Component'}, req.query, {componentUrl:req.originalUrl.replace(/^\/|\?.*$/g,'')});
   const Element = React.createElement(Component, props, null);
-  const output = ReactDOMServer.renderToString(Element,props);
+  const output = ReactDOMServer.renderToStaticMarkup(Element,props);
   res.send('<!DOCTYPE html>\n' + output);
 });
 

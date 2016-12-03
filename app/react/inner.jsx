@@ -10,8 +10,7 @@ export class Inner extends React.Component {
   render() {
     return (
       <Layout {...this.props}>
-      <div id='root00'>
-      {JSON.stringify(this.props)}
+      <div data-reactroot="" >
       next++++++++++*********{this.props.p1}{this.props.b1}8888888888
       </div>
       </Layout>
