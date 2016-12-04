@@ -1,6 +1,5 @@
 "use strict";
 import React from 'react';
-import _ from 'lodash';
 
 export class If extends React.Component {
   render() {
@@ -10,9 +9,6 @@ export class If extends React.Component {
       return false;
     }
   }
-}
-
-If.defaultProps = {
 }
 
 export default If

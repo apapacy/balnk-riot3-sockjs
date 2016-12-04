@@ -23,14 +23,15 @@ export class Inner extends React.Component {
 
 Inner.defaultProps = {
   p1: 'second-----------',
-  footerScript: 'markup/index'
+  footerScript: 'markup/index',
 }
 
-Inner.description = 'Описание для вывдоа в списке компонентов'
-Inner.queryString = {
- 'описание1': {"это руccкий текст":1, b:2},
- 'описание2': {a:3, b:4},
+Inner.markup = {
+  description: 'Описание для вывдоа в списке компонентов',
+  queryString: {
+   'описание1': {"это руccкий текст":1, b:2},
+   'описание2': {a:3, b:4},
+  }
 }
 
 export default Inner
-// export default connect(mapStateToProp)(Component);

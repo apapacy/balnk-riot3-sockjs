@@ -24,19 +24,21 @@ router.get('/', function(req, res, next) {
     if (typeof component.default === 'function') {
       component = component.default;
     }
+    console.log(component.markup)
     components.push({
       path,
-      description: component.description,
+      description: component.markup && component.markup.description,
     });
-    if (typeof component.queryString === 'object') {
-      for (let description in component.queryString) {
+    if (component.markup && typeof component.markup.queryString === 'object') {
+      for (let description in component.markup && component.markup.queryString) {
         components.push({
-          path: path + prepareQueryParameters(component.queryString[description]),
+          path: path + prepareQueryParameters(component.markup.queryString[description]),
           description,
         });
       }
     }
   }
+  console.log(components)
   const index = React.createElement(Index, {
     name: 'Index',
     components
