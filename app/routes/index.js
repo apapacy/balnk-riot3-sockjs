@@ -9,6 +9,7 @@ import ReactDOMServer from 'react-dom/server';
 import * as glob from 'glob-all';
 import {Index} from 'react/markup/Index';
 import {prepareQueryParameters} from 'utils/util'
+import Html from 'react/Html';
 
 router.get('/', function(req, res, next) {
   const paths = glob.sync(['app/react/**/*.jsx']);
@@ -51,9 +52,14 @@ router.all('/react/(*)', function(req, res, next) {
   if (typeof Component.default === 'function') {
     Component = Component.default;
   }
-  const props = Object.assign({name: 'Component'}, req.query, {componentUrl:req.originalUrl.replace(/^\/|\?.*$/g,'')});
-  const Element = React.createElement(Component, props, null);
-  const output = ReactDOMServer.renderToStaticMarkup(Element,props);
+  const props = Object.assign(Component.defaultProps, req.query);
+  props.componentUrl = req.originalUrl.replace(/^\/|\?.*$/g,'');
+  props.currentTime = (new Date).toString();
+  props.properties = JSON.stringify(props);
+  const component = React.createElement(Component, props, null);
+  props.componentHtml = ReactDOMServer.renderToString(component);
+  const html = React.createElement(Html, props);
+  const output = ReactDOMServer.renderToStaticMarkup(html);
   res.send('<!DOCTYPE html>\n' + output);
 });
 

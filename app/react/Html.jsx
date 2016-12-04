@@ -3,11 +3,13 @@ import React from 'react';
 import _ from 'lodash';
 import {assets} from 'react/util';
 import Script from 'react/utils/Script';
+import Transfer from 'react/utils/Transfer';
+
 
 export default class Layout extends React.Component {
     render() {
-        var component;
-        if (typeof window !== 'object') {
+        let component;
+        if (typeof window !== 'object000')
             component = <html>
                 <head>
                     <meta charSet='utf-8'/>
@@ -19,13 +21,16 @@ export default class Layout extends React.Component {
                     <script src={assets('js/config/require.config.js')} type='text/javascript'></script>
                 </head>
                 <body>
-                    {this.props.children}
+                    <div id='layoutWrapper' dangerouslySetInnerHTML = {{ __html: this.props.componentHtml}}/>
+                    <script async src='http://localhost:3000/browser-sync/browser-sync-client.js?v=2.18.2'></script>
+                    <Script>
+                        require(["{this.props.footerScript}"]);
+                    </Script>
+                    <Transfer {...this.props}/>
                 </body>
             </html>;
-        } else {
-            component =                 this.props.children
-
-        }
+        else
+            component = this.props.children;
         return component;
     }
 }

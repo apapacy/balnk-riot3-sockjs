@@ -5,7 +5,11 @@ import _ from 'lodash';
 
 export class Script extends React.Component {
   render() {
-      return React.createElement('script', {dangerouslySetInnerHTML:{ __html: this.props.children.join('')}});
+      return React.createElement('script', {
+          dangerouslySetInnerHTML:{ __html: this.props.children.join(''),
+          type: 'text/javascript',
+        }
+      });
   }
 }
 

@@ -10,11 +10,15 @@ export class Inner extends React.Component {
   render() {
     return (
       <Layout {...this.props}>
-      <div data-reactroot="" >
+      <div onClick={this.onClick}>
       next++++++++++*********{this.props.p1}{this.props.b1}8888888888
+      {this.props.currentTime.toString()}
       </div>
       </Layout>
     )
+  }
+  onClick(){
+    alert('click')
   }
 }
 

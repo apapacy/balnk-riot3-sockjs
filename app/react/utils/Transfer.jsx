@@ -5,6 +5,8 @@ import _ from 'lodash';
 
 export class Script extends React.Component {
   render() {
+  console.log(this.props)
+
   const innerHtml = `
   alert(0)
   requirejs(['react', 'react-dom', '${this.props.componentUrl}'], function(React, ReactDOM, Component){
@@ -12,9 +14,11 @@ export class Script extends React.Component {
     Component = Component.default;
   }
   alert(1)
-  const component = React.createElement(Component, JSON.stringify(this.props), null)
+  var props = ${this.props.properties};
+  //props.currentTime = new Date();
+  const component = React.createElement(Component, props, null)
   alert(2)
-  ReactDOM.render(component, document.getElementById('root'))
+  ReactDOM.render(component, document.getElementById('layoutWrapper'))
   alert(3)
   });
   `;
