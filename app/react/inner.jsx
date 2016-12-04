@@ -12,7 +12,6 @@ export class Inner extends React.Component {
       <Layout {...this.props}>
       <div onClick={this.onClick}>
       next++++++++++*********{this.props.p1}{this.props.b1}8888888888
-      {this.props.currentTime.toString()}
       </div>
       </Layout>
     )

@@ -27,4 +27,3 @@ Index.defaultProps = {
 }
 
 export default Index
-// export default connect(mapStateToProp)(Component);
