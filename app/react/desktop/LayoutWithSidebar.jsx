@@ -1,5 +1,7 @@
 "use strict";
 import React from 'react';
+import	{	createStore	}	from	'redux'
+import	{	Provider	}	from	'react-redux'
 
 export default class LayoutWithSidebar extends React.Component {
     render() {

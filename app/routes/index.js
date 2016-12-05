@@ -13,6 +13,9 @@ import {
   prepareQueryParameters
 } from 'utils/util'
 import Html from 'react/Html';
+import	{	createStore	}	from	'redux';
+import	{	Provider	}	from	'react-redux';
+import reducers from 'react/reducers';
 
 // get list of React components
 router.get('/', function(req, res, next) {
@@ -24,7 +27,6 @@ router.get('/', function(req, res, next) {
     if (typeof component.default === 'function') {
       component = component.default;
     }
-    console.log(component.markup)
     components.push({
       path,
       description: component.markup && component.markup.description,
@@ -38,7 +40,6 @@ router.get('/', function(req, res, next) {
       }
     }
   }
-  console.log(components)
   const index = React.createElement(Index, {
     name: 'Index',
     components
@@ -59,9 +60,11 @@ router.all('/react/(*)', function(req, res, next) {
   console.log(Component.defaultProps);
   const props = Object.assign({}, Component.defaultProps, req.query);
   const component = React.createElement(Component, props, null);
+  const store = createStore(reducers);
+  const provider = React.createElement(Provider, {store}, component);
   props.componentPath = componentPath;
   props.componentProperties = JSON.stringify(props);
-  props.componentHtml = ReactDOMServer.renderToString(component);
+  props.componentHtml = ReactDOMServer.renderToString(provider);
   const html = React.createElement(Html, props);
   const output = ReactDOMServer.renderToStaticMarkup(html);
   res.send('<!DOCTYPE html>\n' + output);
