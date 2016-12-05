@@ -64,7 +64,7 @@ router.all('/react/(*)', function(req, res, next) {
   const provider = React.createElement(Provider, {store}, component);
   props.componentPath = componentPath;
   props.componentProperties = JSON.stringify(props);
-  props.componentHtml = ReactDOMServer.renderToString(provider);
+  props.componentHtml = ReactDOMServer.renderToStaticMarkup(provider);
   const html = React.createElement(Html, props);
   const output = ReactDOMServer.renderToStaticMarkup(html);
   res.send('<!DOCTYPE html>\n' + output);
