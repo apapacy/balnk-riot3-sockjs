@@ -1,9 +1,9 @@
 "use strict";
 import React from 'react';
 import _ from 'lodash';
-import {assets} from 'react/util';
-import Script from 'react/utils/Script';
-import Transfer from 'react/utils/Transfer';
+import {assets} from './util';
+import Script from './utils/Script';
+import Transfer from './utils/Transfer';
 
 
 export default class Layout extends React.Component {

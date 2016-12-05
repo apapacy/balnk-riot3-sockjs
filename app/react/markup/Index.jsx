@@ -1,8 +1,8 @@
 "use strict";
 import React from 'react';
-import If from 'react/utils/If';
-import For from 'react/utils/For';
-import Layout from 'react/Layout';
+import If from '../utils/If';
+import For from '../utils/For';
+import Layout from '../Layout';
 
 export class Index extends React.Component {
     render() {

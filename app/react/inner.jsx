@@ -1,7 +1,7 @@
 "use strict";
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Layout from 'react/Layout'
+import Layout from './Layout'
 
 export class Inner extends React.Component {
   constructor(props){

@@ -8,14 +8,14 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import ReactDOMServer from 'react-dom/server';
 import * as glob from 'glob-all';
-import Index from 'react/markup/Index';
+import Index from '../react/markup/Index';
 import {
   prepareQueryParameters
-} from 'utils/util'
-import Html from 'react/Html';
+} from '../utils/util'
+import Html from '../react/Html';
 import	{	createStore	}	from	'redux';
 import	{	Provider	}	from	'react-redux';
-import reducers from 'react/reducers';
+import reducers from '../react/reducers';
 
 // get list of React components
 router.get('/', function(req, res, next) {
@@ -23,7 +23,7 @@ router.get('/', function(req, res, next) {
   const components = [];
   for (let i = 0; i < paths.length; i++) {
     let path = paths[i].substring(4).replace(/\..+$/g, '')
-    let component = require(path);
+    let component = require('../' + path);
     if (typeof component.default === 'function') {
       component = component.default;
     }
@@ -53,7 +53,7 @@ router.get('/', function(req, res, next) {
 
 router.all('/react/(*)', function(req, res, next) {
   const componentPath = 'react/' + req.params[0].replace(/^\/|\?.*$/g, '')
-  let Component = require(componentPath);
+  let Component = require('../' + componentPath);
   if (typeof Component.default === 'function') {
     Component = Component.default;
   }
