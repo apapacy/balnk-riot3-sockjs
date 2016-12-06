@@ -1,25 +1,30 @@
 "use strict";
 import React from 'react';
-import	{bindActionCreators}	from	'redux'
-import	{connect}	from	'react-redux'
+import {bindActionCreators} from 'redux'
+import {connect} from 'react-redux'
 import LayoutWithSidebar from '../LayoutWithSidebar';
 import Sidebar from '../blocks/Sidebar';
 import Header from '../blocks/Header';
-import	*	as	pageActions	from	'../../actions/PageActions'
+import Input from '../utils/Input';
+import * as pageActions from '../../actions/PageActions'
+import * as userActions from '../../actions/UserActions'
 
 class AccountRegistration extends React.Component {
     render() {
         const sidebar = React.createElement(Sidebar, this.props);
         const header = React.createElement(Header, this.props);
-        return <LayoutWithSidebar {...{...this.props, header}} >
+        return <LayoutWithSidebar {...{...this.props, header}}>
             <h3>{this.props.page.year}</h3>
             <form className='form' action={77} onSubmit={::this.onSubmit}>
-                <div/>
+                {this.props.fields.map((field, i) => <Input {...field} key={i}/>)}
                 <div className='form__note'>
                     Нажимая кнопку &laquo;Зарегистрироваться&raquo;, я даю согласие на
-                    <a href={123}> обработку моих персональных данных </a>
+                    <a href={123}>
+                        обработку моих персональных данных
+                    </a>
                     и принимаю
-                    <a href={456}> Правила сервиса</a>
+                    <a href={456}>
+                        Правила сервиса</a>
                 </div>
                 <button className='form__button' type='submit'>
                     <span>{789}</span>
@@ -31,30 +36,61 @@ class AccountRegistration extends React.Component {
         </LayoutWithSidebar>
     }
     onSubmit(event) {
-      event.preventDefault();
-      console.log(this.props)
-	    this.props.pageActions.setYear(1 + this.props.page.year);
+        event.preventDefault();
+        console.log(this.props)
+        this.props.pageActions.setYear(1 + this.props.page.year);
     }
 }
 
-AccountRegistration.defaulpProps = {
+AccountRegistration.defaultProps = {
+    title: `registration.title_${'test'}`,
+    formActionUrl: '#',
+    fields: [
+        {
+            id: 'register_phone',
+            type: 'text',
+            placeholder: 'Мобильный телефон',
+            field: 'phone'
+        }, {
+            id: 'register_email',
+            type: 'text',
+            placeholder: 'E-mail',
+            field: 'email',
+            //onchange: emailChanged
+        }, {
+            id: 'register_password',
+            type: 'password',
+            placeholder: 'Придумайте пароль',
+            field: 'password'
+        }, {
+            id: 'register_password_repeat',
+            type: 'password',
+            placeholder: 'Повторите пароль',
+            field: 'passwordConfirm'
+        }
+    ],
+    personalDataUrl: '#',
+    serviceRulesUrl: '#',
+    loginUrl: '/user/login',
+    loginText: 'Войти в кабинет',
+    buttonText: 'Зарегистрироваться'
 };
 
 AccountRegistration.markup = {
-  description: 'Регистрация пользователя (десктопная версия)',
+    description: 'Регистрация пользователя (десктопная версия)'
 };
 
-function	mapStateToProps(state)	{
-		return	{
-				user:	state.user,
-				page:	state.page
-		}
+function mapStateToProps(state) {
+    return {
+        user: state.user,
+        page: state.page,
+    };
 }
 
-function	mapDispatchToProps(dispatch)	{
-		return	{
-				pageActions:	bindActionCreators(pageActions,	dispatch)
-		}
+function mapDispatchToProps(dispatch) {
+    return {
+        pageActions: bindActionCreators(pageActions, dispatch),
+    };
 }
 
-export	default	connect(mapStateToProps,	mapDispatchToProps)(AccountRegistration)
+export default connect(mapStateToProps, mapDispatchToProps)(AccountRegistration)
