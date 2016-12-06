@@ -16,8 +16,8 @@ class AccountRegistration extends React.Component {
         const header = React.createElement(Header, this.props);
         return <LayoutWithSidebar {...{...this.props, header}}>
             <h3>{this.props.page.year}</h3>
-            <form className='form' action={77} onSubmit={::this.onSubmit}>
-                {this.props.fields.map((field, i) => <Input {...field} key={i} inputValueChanged={::this.inputValueChanged}/>)}
+            <form className='form' action={77} onSubmit={:: this.onSubmit}>
+                {this.props.fields.map((field, i) => <Input {...field} key={i} inputValueChanged={:: this.inputValueChanged}/>)}
                 <div className='form__note'>
                     Нажимая кнопку &laquo;Зарегистрироваться&raquo;, я даю согласие на
                     <a href={123}>
@@ -47,7 +47,7 @@ class AccountRegistration extends React.Component {
 }
 
 AccountRegistration.defaultProps = {
-    title: `registration.title_${'test'}`,
+    title: `registration.title_${ 'test'}`,
     formActionUrl: '#',
     fields: [
         {
@@ -85,23 +85,17 @@ AccountRegistration.markup = {
 };
 
 AccountRegistration.propTypes = {
-    accountRegistration: React.PropTypes.shape({
-      phone: React.PropTypes.number,
-    })
+    accountRegistration: React.PropTypes.shape({phone: React.PropTypes.number})
 }
 
 function mapStateToProps(state) {
-    return {
-        user: state.user,
-        page: state.page,
-        accountRegistration: state.accountRegistration,
-    };
+    return {user: state.user, page: state.page, accountRegistration: state.accountRegistration};
 }
 
 function mapDispatchToProps(dispatch) {
     return {
         pageActions: bindActionCreators(pageActions, dispatch),
-        accountRegistrationActions: bindActionCreators(accountRegistrationActions, dispatch),
+        accountRegistrationActions: bindActionCreators(accountRegistrationActions, dispatch)
     };
 }
 
