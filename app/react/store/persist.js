@@ -1,7 +1,5 @@
 export const persist = store => next => action => {
   const returns = next(action);
-  console.log('persist');
-  console.log(store.getState());
   serialize(store)
   return returns;
 };

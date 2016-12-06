@@ -6,8 +6,9 @@ import LayoutWithSidebar from '../LayoutWithSidebar';
 import Sidebar from '../blocks/Sidebar';
 import Header from '../blocks/Header';
 import Input from '../utils/Input';
-import * as pageActions from '../../actions/PageActions'
-import * as userActions from '../../actions/UserActions'
+import * as pageActions from '../../actions/PageActions';
+import * as userActions from '../../actions/UserActions';
+import * as accountRegistrationActions from '../../actions/AccountRegistrationActions';
 
 class AccountRegistration extends React.Component {
     render() {
@@ -16,7 +17,7 @@ class AccountRegistration extends React.Component {
         return <LayoutWithSidebar {...{...this.props, header}}>
             <h3>{this.props.page.year}</h3>
             <form className='form' action={77} onSubmit={::this.onSubmit}>
-                {this.props.fields.map((field, i) => <Input {...field} key={i}/>)}
+                {this.props.fields.map((field, i) => <Input {...field} key={i} inputValueChanged={::this.inputValueChanged}/>)}
                 <div className='form__note'>
                     Нажимая кнопку &laquo;Зарегистрироваться&raquo;, я даю согласие на
                     <a href={123}>
@@ -24,7 +25,8 @@ class AccountRegistration extends React.Component {
                     </a>
                     и принимаю
                     <a href={456}>
-                        Правила сервиса</a>
+                        Правила сервиса
+                    </a>
                 </div>
                 <button className='form__button' type='submit'>
                     <span>{789}</span>
@@ -35,9 +37,11 @@ class AccountRegistration extends React.Component {
             </div>
         </LayoutWithSidebar>
     }
+    inputValueChanged(field, value) {
+        this.props.accountRegistrationActions.inputValueChanged(field, value);
+    }
     onSubmit(event) {
         event.preventDefault();
-        console.log(this.props)
         this.props.pageActions.setYear(1 + this.props.page.year);
     }
 }
@@ -80,16 +84,24 @@ AccountRegistration.markup = {
     description: 'Регистрация пользователя (десктопная версия)'
 };
 
+AccountRegistration.propTypes = {
+    accountRegistration: React.PropTypes.shape({
+      phone: React.PropTypes.number,
+    })
+}
+
 function mapStateToProps(state) {
     return {
         user: state.user,
         page: state.page,
+        accountRegistration: state.accountRegistration,
     };
 }
 
 function mapDispatchToProps(dispatch) {
     return {
         pageActions: bindActionCreators(pageActions, dispatch),
+        accountRegistrationActions: bindActionCreators(accountRegistrationActions, dispatch),
     };
 }
 

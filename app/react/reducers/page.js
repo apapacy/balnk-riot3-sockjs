@@ -6,7 +6,7 @@ import {
 } from '../constants/Page'
 
 const initialState = {
-  year: 2016,
+  year: 2018,
   photos: [],
   fetching: false,
   error: ''

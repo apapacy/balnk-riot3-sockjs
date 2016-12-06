@@ -12,7 +12,6 @@ export class Transfer extends React.Component {
             }
             var props = ${this.props.componentProperties};
             const store = Store.default();
-            console.log(store)
             props.store = store;
             const component = React.createElement(Component, props, null);
             const provider = React.createElement(ReactRedux.Provider, {store}, component);
