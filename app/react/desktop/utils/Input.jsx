@@ -7,7 +7,7 @@ import * as pageActions from '../../actions/PageActions';
 import * as userActions from '../../actions/UserActions';
 import * as accountRegistrationActions from '../../actions/AccountRegistrationActions';
 
-class Input extends React.Component {
+export default class Input extends React.Component {
     render() {
         console.log(this.props);
         return <div className={`form__field ${this.props.class}`}>
@@ -15,7 +15,7 @@ class Input extends React.Component {
                 type={this.props.type || 'text'}
                 id={this.props.id}
                 required={true}
-                value={this.props.accountRegistration[this.props.field]}
+                value={this.props.source}
                 onChange={::this.onChange}
                 ref={(input) => this.input = input}
             />
@@ -29,7 +29,7 @@ class Input extends React.Component {
     }
 }
 
-function mapStateToProps(state) {
+/*function mapStateToProps(state) {
     return {
         user: state.user,
         page: state.page,
@@ -37,4 +37,4 @@ function mapStateToProps(state) {
     };
 }
 
-export default connect(mapStateToProps)(Input);
+export default connect(mapStateToProps)(Input);*/

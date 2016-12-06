@@ -17,7 +17,10 @@ class AccountRegistration extends React.Component {
         return <LayoutWithSidebar {...{...this.props, header}}>
             <h3>{this.props.page.year}</h3>
             <form className='form' action={77} onSubmit={:: this.onSubmit}>
-                {this.props.fields.map((field, i) => <Input {...field} key={i} inputValueChanged={:: this.inputValueChanged}/>)}
+                {this.props.fields.map(
+                  (item, i) =>
+                    <Input {...item} key={i} inputValueChanged={::this.inputValueChanged} source={this.props.accountRegistration[item.field]}/>
+                  )}
                 <div className='form__note'>
                     Нажимая кнопку &laquo;Зарегистрироваться&raquo;, я даю согласие на
                     <a href={123}>
