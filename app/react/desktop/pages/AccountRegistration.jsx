@@ -47,7 +47,7 @@ class AccountRegistration extends React.Component {
         </LayoutWithSidebar>
     }
     inputValueChanged(field, value) {
-        this.props.accountRegistrationActions.inputValueChanged(field, value);
+        this.props.accountRegistrationActions.validateOnServer(field, value);
     }
     onSubmit(event) {
         event.preventDefault();
