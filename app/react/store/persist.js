@@ -1,35 +1,35 @@
 export const persist = store => next => action => {
-  const returns = next(action);
-  serialize(store)
-  return returns;
+    const returns = next(action);
+    serialize(store);
+    return returns;
 };
 
 const sessionStorageKey = 'some key';
 
 function serialize(store) {
-  setStorage(store.getState())
+    setStorage(store.getState());
 }
 
 export function deserialize() {
-  return getStorage();
+    return getStorage();
 }
 
 function getStorage() {
-  if (!window || !window.sessionStorage) {
-    return;
-  }
-  const storage = window.sessionStorage[sessionStorageKey];
-  if (!storage) {
-    return {};
-  } else {
-    return JSON.parse(storage);
-  }
+    if (!window || !window.sessionStorage) {
+        return;
+    }
+    const storage = window.sessionStorage[sessionStorageKey];
+    if (!storage) {
+        return {};
+    } else {
+        return JSON.parse(storage);
+    }
 }
 
 function setStorage(state) {
-  if (typeof state === 'object') {
-    window.sessionStorage[sessionStorageKey] = JSON.stringify(state);
-  } else {
-    window.sessionStorage[sessionStorageKey] = '';
-  }
+    if (typeof state === 'object') {
+        window.sessionStorage[sessionStorageKey] = JSON.stringify(state);
+    } else {
+        window.sessionStorage[sessionStorageKey] = '';
+    }
 }

@@ -1,7 +1,7 @@
 "use strict";
 import React from 'react';
-import {bindActionCreators} from 'redux'
-import {connect} from 'react-redux'
+import {bindActionCreators} from 'redux';
+import {connect} from 'react-redux';
 import LayoutWithSidebar from '../LayoutWithSidebar';
 import Sidebar from '../blocks/Sidebar';
 import Header from '../blocks/Header';
@@ -19,7 +19,13 @@ class AccountRegistration extends React.Component {
             <form className='form' action={77} onSubmit={:: this.onSubmit}>
                 {this.props.fields.map(
                   (item, i) =>
-                    <Input {...item} key={i} inputValueChanged={::this.inputValueChanged} source={this.props.accountRegistration[item.field]}/>
+                    <Input
+                      {...item}
+                      key={i}
+                      inputValueChanged={::this.inputValueChanged}
+                      source={this.props.accountRegistration[item.field]}
+                      error={this.props.accountRegistration.errors[item.field]}
+                    />
                   )}
                 <div className='form__note'>
                     Нажимая кнопку &laquo;Зарегистрироваться&raquo;, я даю согласие на
@@ -88,7 +94,7 @@ AccountRegistration.markup = {
 };
 
 AccountRegistration.propTypes = {
-    accountRegistration: React.PropTypes.shape({phone: React.PropTypes.number})
+    accountRegistration: React.PropTypes.shape({phone: React.PropTypes.string})
 }
 
 function mapStateToProps(state) {
