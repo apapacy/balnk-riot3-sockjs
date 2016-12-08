@@ -3,7 +3,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Layout from './Layout'
 
-export class Inner extends React.Component {
+export default class Inner extends React.Component {
+  state = {
+    state: 'states',
+  }
   constructor(props){
     super(props);
   }
@@ -11,7 +14,7 @@ export class Inner extends React.Component {
     return (
       <Layout {...this.props}>
       <div onClick={this.onClick}>
-      next++++++++++*********{this.props.p1}{this.props.b1}8888888888
+      next++++++++++{this.state.state}*********{this.props.p1}{this.props.b1}8888888888
       </div>
       </Layout>
     )
@@ -33,5 +36,3 @@ Inner.markup = {
    'описание2': {a:3, b:4},
   }
 }
-
-export default Inner
