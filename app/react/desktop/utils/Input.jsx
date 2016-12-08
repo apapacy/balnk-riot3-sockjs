@@ -28,13 +28,3 @@ export default class Input extends React.Component {
         this.props.inputValueChanged(this.props.field, this.input.value);
     }
 }
-
-/*function mapStateToProps(state) {
-    return {
-        user: state.user,
-        page: state.page,
-        accountRegistration: state.accountRegistration,
-    };
-}
-
-export default connect(mapStateToProps)(Input);*/

@@ -6,7 +6,6 @@ import {postJson} from '../util';
 
 export function inputValueChanged(field, value) {
     const error = errorMessage(field, value);
-    console.log(error)
     if (!error) {
         return {
             type: INPUT_VALUE_CHANGED,

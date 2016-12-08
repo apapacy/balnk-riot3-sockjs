@@ -1,7 +1,7 @@
 "use strict";
 import React from 'react';
 
-export class Script extends React.Component {
+export default class Script extends React.Component {
     render() {
         const script = React.createElement('script', {
             type: 'application/javascript',
@@ -12,5 +12,3 @@ export class Script extends React.Component {
         return script;
     }
 }
-
-export default Script
