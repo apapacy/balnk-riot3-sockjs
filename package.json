@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon ./bin/www"
+    "start": "nodemon ./bin/www",
+    "bs": "node_modules/.bin/bsc  -bs-files  /home/apapacy/projects/bucklescript-addons/bindings/bs-promise/src/*.mli  -I /home/apapacy/projects/bucklescript-addons/bindings/bs-promise/src -c -bs-main main_entry.ml"
   },
   "dependencies": {
     "babel": "^6.5.2",
@@ -20,6 +21,7 @@
     "body-parser": "~1.15.2",
     "bower-webpack-plugin": "^0.1.9",
     "brander-gulp-tasks": "0.0.6",
+    "bs-platform": "1.0.1",
     "cookie-parser": "~1.4.3",
     "debug": "~2.2.0",
     "express": "^4.14.0",
