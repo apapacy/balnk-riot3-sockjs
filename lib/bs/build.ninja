@@ -1,0 +1,30 @@
+ninja_required_version = 1.7.1 
+bs_package_flags = -bs-package-name main_enry
+src_root_dir = /home/admins/projects/balnk-riot3-sockjs
+bsc = /home/admins/projects/balnk-riot3-sockjs/node_modules/bs-platform/bin/bsc.exe
+bsdep = /home/admins/projects/balnk-riot3-sockjs/node_modules/bs-platform/bin/bsb_helper.exe
+ocamllex = ocamllex.opt
+bsc_includes = -I src
+bsc_flags = 
+ppx_flags = 
+bs_package_includes = 
+refmt = refmt
+rule build_ast_and_deps
+  command = ${bsc}  ${pp_flags} ${ppx_flags} ${bsc_flags} -c -o ${out} -bs-syntax-only -bs-binary-ast ${in}
+  description = Building ${out}
+build src/fib.mlast : build_ast_and_deps $src_root_dir/src/fib.ml
+rule build_deps
+  command = ${bsdep}  -bs-bin-MD ${in}
+  description = Building ${out}
+build src/fib.mlast.d : build_deps src/fib.mlast
+rule build_cmj_only
+  command = ${bsc} ${bs_package_flags} -bs-no-builtin-ppx-ml -bs-no-implicit-include  ${bs_package_includes} ${bsc_includes} ${bsc_flags} -o ${in} -c  ${in} ${postbuild}
+  depfile = ${in}.d
+  description = Building ${out}
+build src/fib.cmj $src_root_dir/lib/js/src/fib.js src/fib.cmi : build_cmj_only src/fib.mlast
+  bs_package_flags = $bs_package_flags  -bs-package-output commonjs:lib/js/src
+build src/main_entry.mlast : build_ast_and_deps $src_root_dir/src/main_entry.ml
+build src/main_entry.mlast.d : build_deps src/main_entry.mlast
+build src/main_entry.cmj $src_root_dir/lib/js/src/main_entry.js src/main_entry.cmi : build_cmj_only src/main_entry.mlast
+  bs_package_flags = $bs_package_flags  -bs-package-output commonjs:lib/js/src
+build build.ninja : phony  ||  src/main_entry.mlast.d src/fib.mlast.d

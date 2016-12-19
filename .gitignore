@@ -5,3 +5,4 @@ frontend/js/riot
 frontend/fonts
 frontend/images
 frontend/stylesheets
+*.log
