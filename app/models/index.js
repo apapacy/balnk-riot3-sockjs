@@ -1,4 +1,4 @@
-//select p.body, p.title, u.name from default p  join default u on keys 'User|' || p.`user`.`$ref`  where u._type='User' and p._type='Post';
+//select p.body, p.title, u.name from default p  join default u on keys 'User|' || p.`user`.`$ref`  where u._type='User' and p._type='Post' order by u._id desc  limit 1 offset 0 ;
 ;
 
 import  {promify} from '../utils/util';
