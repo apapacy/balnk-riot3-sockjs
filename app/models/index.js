@@ -8,8 +8,21 @@ var cluster = new couchbase.Cluster('couchbase://127.0.0.1?operation_timeout=100
 ottoman.bucket = cluster.openBucket('default');
 
 
+
+var Users = ottoman.model('User', {
+  name: 'string',
+  count: 'number',
+}, {
+  queries: {
+    myPosts: {
+      of: 'Post',
+      by: 'user'
+    }
+  }
+});
+
 var Posts = ottoman.model('Post', {
-  user: {ref: 'User'},
+  user: Users,
   title: 'string',
   body: 'string',
 }, {
@@ -21,21 +34,12 @@ var Posts = ottoman.model('Post', {
   }
 });
 
-var Users = ottoman.model('User', {
-  name: 'string'
-}, {
-  queries: {
-    myPosts: {
-      of: 'Post',
-      by: 'user'
-    }
-  }
-});
 
 promify(ottoman, ottoman.ensureIndices)
 .then(data => {
-  for (let i = 0; i < 100000; i++) {
-    var user = new Users({name: 'John' + i});
+  for (let i = 0; i < 1; i++) {
+    var user = new Users({name: 'John' + i, count: "a"});
+    console.log(user)
     var test = promify(user, user.save);
   }
   return test;
@@ -44,7 +48,7 @@ promify(ottoman, ottoman.ensureIndices)
   var post = new Posts({user, title: 'title', body: 'body'});
   return promify(post, post.save)
 })
-.then(post=> promify(Users, Users.myPosts, {}))
+.then(post=> promify(Users, Users.find, {}))
 .then(
   (posts=>console.log(posts)),
   (err => console.log(err))
