@@ -4,9 +4,10 @@
 import  {promify} from '../utils/util';
 var ottoman = require('ottoman');
 var couchbase = require('couchbase');
-var cluster = new couchbase.Cluster('couchbase://127.0.0.1?operation_timeout=1000&config_total_timeout=1000&http_poolsize=100');
-ottoman.bucket = cluster.openBucket('default');
-
+var N1qlQuery = couchbase.N1qlQuery;
+var cluster = new couchbase.Cluster('couchbase://127.0.0.1?fetch_mutation_tokens=1&operation_timeout=1000&config_total_timeout=1000&http_poolsize=1');
+var bucket = ottoman.bucket = cluster.openBucket('default');
+ottoman.bucket.query.consistency = 3;
 
 
 var Users = ottoman.model('User', {
@@ -22,7 +23,7 @@ var Users = ottoman.model('User', {
 });
 
 var Posts = ottoman.model('Post', {
-  user: Users,
+  user: {ref: 'User'},
   title: 'string',
   body: 'string',
 }, {
@@ -52,4 +53,13 @@ promify(ottoman, ottoman.ensureIndices)
 .then(
   (posts=>console.log(posts)),
   (err => console.log(err))
-);
+).then(
+  () => {
+    var query = N1qlQuery.fromString("select p.body, p.title, u.name from default p  join default u on keys 'User|' || p.`user`.`$ref`  where u._type='User' and p._type='Post' order by u._id desc  limit 10 offset 0");
+    query.consistency(N1qlQuery.Consistency.STATEMENT_PLUS);
+    return promify(bucket, ottoman.bucket.query, query);
+  }
+).then(
+  (data => console.log(data)),
+  (error => console.log(error))
+)
