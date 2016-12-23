@@ -5,7 +5,7 @@ import  {promify} from '../utils/util';
 var ottoman = require('ottoman');
 var couchbase = require('couchbase');
 var N1qlQuery = couchbase.N1qlQuery;
-var cluster = new couchbase.Cluster('couchbase://127.0.0.1?fetch_mutation_tokens=1&operation_timeout=1000&config_total_timeout=1000&http_poolsize=1');
+var cluster = new couchbase.Cluster('couchbase://127.0.0.1?fetch_mutation_tokens=1&operation_timeout=3600&config_total_timeout=3600durabilty_interval=1&http_poolsize=100');
 var bucket = ottoman.bucket = cluster.openBucket('default');
 ottoman.bucket.query.consistency = 3;
 
@@ -38,7 +38,7 @@ var Posts = ottoman.model('Post', {
 
 promify(ottoman, ottoman.ensureIndices)
 .then(data => {
-  for (let i = 0; i < 1; i++) {
+  for (let i = 0; i < 1000000; i++) {
     var user = new Users({name: 'John' + i, count: "a"});
     console.log(user)
     var test = promify(user, user.save);
@@ -63,3 +63,8 @@ promify(ottoman, ottoman.ensureIndices)
   (data => console.log(data)),
   (error => console.log(error))
 )
+
+module.exports = {
+  Users,
+  Posts
+}

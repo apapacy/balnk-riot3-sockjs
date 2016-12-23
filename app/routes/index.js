@@ -16,6 +16,19 @@ import Html from '../react/Html';
 import	{	createStore	}	from	'redux';
 import	{	Provider	}	from	'react-redux';
 import reducers from '../react/reducers';
+import models from '../models';
+
+
+router.get('/models', function(req, res, next) {
+  const user = new models.Users({name: 'John 1'});
+  user.save(function(err){
+    if (err) {
+      console.log(err);
+    }
+    res.json(user)
+  })
+});
+
 
 // get list of React components
 router.get('/', function(req, res, next) {
