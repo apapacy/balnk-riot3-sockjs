@@ -3,9 +3,11 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
+    "watch": "./node_modules/.bin/gulp riot:frontend:watch",
     "start": "nodemon ./bin/www",
     "build": "./node_modules/.bin/bsb",
-    "watch": "bsb -w"
+    "bsb": "bsb -w",
+    "test": "node_modules/.bin/mocha app/test/**/*.js --harmony --es_staging --colors --timeout 60000"
   },
   "dependencies": {
     "babel": "^6.5.2",
@@ -23,12 +25,15 @@
     "bower-webpack-plugin": "^0.1.9",
     "brander-gulp-tasks": "0.0.6",
     "bs-platform": "1.3.3",
+    "chai-as-promised": "^6.0.0",
+    "coffee": "^3.3.0",
     "cookie-parser": "~1.4.3",
     "debug": "~2.2.0",
     "express": "^4.14.0",
     "extract-text-webpack-plugin": "^1.0.1",
     "fetch": "^1.1.0",
     "glob-all": "^3.1.0",
+    "gulp": "^3.9.1",
     "gulp-webpack": "^1.5.0",
     "morgan": "~1.7.0",
     "node-sass-middleware": "0.9.8",
@@ -41,9 +46,12 @@
     "redux-thunk": "^2.1.0",
     "riot": "^3.0.0",
     "serve-favicon": "^2.3.2",
+    "should": "^11.1.2",
     "socket.io": "^1.6.0",
     "sockjs": "^0.3.18",
     "step": "0.0.6",
+    "supertest-session": "^3.0.0",
+    "traceur": "0.0.111",
     "twig": "^0.9.5",
     "twig-compile": "^0.2.4",
     "webpack": "^1.13.3"

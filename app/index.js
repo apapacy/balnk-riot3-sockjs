@@ -11,7 +11,7 @@ var http = require('http');
 
 var app = express();
 
-var model = require('./models');
+//var model = require('./models');
 
 //var socket = http.createServer(app);
 //var sockjs_opts = {sockjs_url: "http://cdn.jsdelivr.net/sockjs/1.0.1/sockjs.min.js"};

@@ -156,11 +156,15 @@ const exec = require('child_process').exec;
 gulp.task('riot:frontend', function(cb) {
   exec('riot -m app/riot frontend/js/riot/frontend-tag.js', function(err, stdout, stderr) {
   });
+  exec('coffee -o app/ -cw coffee/', function(err, stdout, stderr) {
+  });
 });
 
 gulp.task('riot:frontend:watch', function(cb) {
     spawn('riot', ['-w', '-m', 'app/riot', 'frontend/js/riot/frontend-tag.js']);
+    spawn('coffee', ['-o', 'app/', '-cw', 'coffee/']);
 });
+
 gulp.task('ts', function(cb) {
   exec('ts', function(err, stdout, stderr) {
   });
